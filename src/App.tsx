@@ -44,18 +44,20 @@ function App() {
       )}
 
       {/* Landing page */}
-      <div className="flex h-screen w-full items-center justify-between px-32">
-        <div className="flex flex-col h-screen items-start justify-center font-martian text-5xl text-white gap-4">
+      <div id="home" className="flex flex-col-reverse md:flex-row h-screen w-full items-center text-center md:text-left justify-center md:justify-between px-8 md:px-32 pt-[10%]">
+        <div className="border-1 border-red-500 flex flex-col w-full md:w-[80%] items-center md:items-start text-center md:text-left justify-center font-martian text-xl md:text-2xl lg:text-5xl text-white gap-4">
           <p>Hi there 👋!</p>
-          <div className="flex flex-row gap-3">
-            <p>I'm arrz</p>
-            <p className="text-orange-400"> {"{ aka Arroz }"} </p>
-          </div>
-          <p className="pl-24">a backend developer</p>
+          {/* This awkward aproach is the correct way of having two different
+            stylizations and keep the correct text responsiveness */}
+          <p className="flex flex-wrap items-center text-center md:text-left justify-center md:justify-start gap-1">
+            <span>I'm arrz</span>
+            <span className="text-orange-400">{'{ aka Arroz }'}</span>
+          </p>
+          <p className="pl-0 md:pl-24">a backend developer</p>
         </div>
 
-        <div className="transform -scale-x-100">          
-          <img src={icon} alt="Bunny icon" className="h-60 md:h-[50rem] w-60 md:w-70"/>
+        <div className="border-blue-500 border-2 transform -scale-x-100 items-center justify-center">          
+          <img src={icon} alt="Bunny icon" className="h-40 md:h-[50rem] w-40 md:w-70"/>
         </div>
       </div>
 
