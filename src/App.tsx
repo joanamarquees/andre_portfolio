@@ -1,6 +1,8 @@
 import './index.css'
 import logo from './assets/arrz_logo.svg'
 import icon from './assets/arrz_icon.svg'
+import rw_interactive from './assets/rw_interactive.svg'
+import sky from './assets/sky.svg'
 import SkillCloud from './components/skills-cloud'
 import alma from './assets/alma.svg'
 
@@ -34,20 +36,9 @@ function App() {
         </div>
       </div>
 
-      {/* Mobile Drawer Menu */}
-      {isDrawerOpen && (
-        <div className="md:hidden fixed h-12 w-full text-xl font-jersey bg-black/90 text-orange-400 p-4">
-          <div className="flex gap-6 text-right justify-end">
-            <p>ABOUT</p>
-            <p>PROJECTS</p>
-            <p>CONTACT ME</p>
-          </div>
-        </div>
-      )}
-
       {/* Landing page */}
       <div id="home" className="flex flex-col-reverse md:flex-row h-screen w-full items-center text-center md:text-left justify-center md:justify-between px-8 md:px-32 pt-[10%]">
-        <div className="border-1 border-red-500 flex flex-col w-full md:w-[80%] items-center md:items-start text-center md:text-left justify-center font-martian text-xl md:text-2xl lg:text-5xl text-white gap-4">
+        <div className="flex flex-col w-full md:w-[80%] items-center md:items-start text-center md:text-left justify-center font-martian text-xl md:text-2xl lg:text-5xl text-white gap-4">
           <p>Hi there 👋!</p>
           {/* This awkward aproach is the correct way of having two different
             stylizations and keep the correct text responsiveness */}
@@ -58,14 +49,56 @@ function App() {
           <p className="pl-0 md:pl-24">a backend developer</p>
         </div>
 
-        <div className="border-blue-500 border-2 transform -scale-x-100 items-center justify-center">          
+        <div className="transform -scale-x-100 items-center justify-center">          
           <img src={icon} alt="Bunny icon" className="h-40 md:h-[50rem] w-40 md:w-70"/>
         </div>
       </div>
 
       {/* Skills & tools and companies/works */}
-      <div className="h-screen w-full">
-        <SkillCloud />
+      <div id="about" className="flex flex-col md:flex-row h-screen w-full pt-[10%]">
+        {/* ABOUT text */}
+        <div className="flex flex-col w-full md:w-[50%] items-center md:items-start text-center md:text-left justify-center font-martian text-sm md:text-lg lg:text-xl text-white gap-4 px-6 leading-relaxed">
+          <div className="sm:pl-10 lg:pl-20">
+            <p>
+              I’m André
+              <span className="text-orange-400 font-semibold"> {"{ a backend-loving, full-stack-capable }"} </span>
+              who’d rather scale servers than drink coffee.
+            </p>
+            <p>
+              I enjoy turning complex logic into clean, efficient code — whether it's APIs,
+              containers, or DevOps pipelines. 
+            </p>
+            <p>
+              <span className="text-orange-300 font-medium">Off the clock?</span>
+              I’m usually gaming, cruising in my car 🚗, hanging out with my two bunnies 🐇🐇,
+              or pretending to be productive while actually optimizing my PC setup.
+            </p>
+            <p className="text-orange-300 font-medium">
+              Let’s build cool stuff (and maybe grill something too)!
+            </p>
+          </div>
+
+          {/* Companies */}
+          <div className="flex w-full pt-5 md:pt-10 gap-4 md:gap-8 text-white justify-center items-end">
+            <div className="h-12 md:h-15 w-fit p-1 bg-zinc-900 rounded-md">
+              <img src={rw_interactive} alt="rw interactive" className="h-10 md:h-12" />
+            </div>
+
+            <div className="h-12 md:h-15 w-fit p-2 bg-zinc-900 rounded-md">
+              <img src={sky} alt="sky portugal" className="h-10 md:h-12"/>
+            </div>
+
+            <div className="flex h-12 md:h-15 w-fit  p-2 bg-zinc-900 rounded-md items-center gap-1 md:gap-2">
+              <img src={alma} alt="sky portugal" className="h-10 md:h-12"/>
+              <p className="text-zinc-400 text-xs md:text-base"> ALMA </p>
+            </div>
+          </div>
+        </div>
+        
+        {/* Skills & tools */}
+        <div className="h-[50%] md:h-full w-full md:w-[50%] px-4 md:p-10">
+          <SkillCloud />
+        </div>
       </div>
 
       
