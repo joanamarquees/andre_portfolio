@@ -2,33 +2,35 @@ import './index.css'
 import logo from './assets/arrz_logo.svg'
 import icon from './assets/arrz_icon.svg'
 import SkillCloud from './components/skills-cloud'
-import { useState } from 'react'
+import alma from './assets/alma.svg'
 
 function App() {
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false)
+
+  {/* Scroll effect for the header buttons */}
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string, scrollBlock='start' as ScrollLogicalPosition) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: scrollBlock
+      });
+    }
+  };
 
   return (
-    <div className="bg-black h-full w-screen text-martian">
+    <div className="bg-black h-full w-screen text-martian overflow-x-hidden">
       {/* Header */}
-      <div className="fixed top-0 left-0 w-full flex h-[10%] text-center items-center justify-between text-orange-400 font-jersey text-3xl px-5 md:px-10 bg-black/70 z-50">
-        <div>
-          <img src={logo} alt="Logo" className="h-20 md:h-30 w-20 md:w-30" />
-        </div>
-        
-        {/* Mobile Menu Button - visible only on small screens */}
-        <button 
-          className="md:hidden transition-transform duration-300"
-          onClick={() => setIsDrawerOpen(!isDrawerOpen)}
-          style={{ transform: isDrawerOpen ? 'rotate(90deg)' : 'rotate(0deg)' }}
-        >
-          {isDrawerOpen ? '✕' : '☰'}
-        </button>
+      <div className="fixed w-full flex h-[10%] items-center justify-between text-orange-400 font-jersey text-center text-lg sm:text-3xl px-5 md:px-10 bg-black/70 z-50">
+        <a href="#home">
+          <img src={logo} alt="Logo" className="sm:h-20 md:h-30 w-14 sm:w-20 md:w-30" />
+        </a>
 
         {/* Desktop Menu - hidden on small screens, visible on md and up */}
-        <div className="hidden md:flex gap-6">
-          <p> ABOUT </p>
-          <p> PROJECTS </p>
-          <p> CONTACT ME </p>
+        <div className="flex gap-3 md:gap-6">
+          <a href="#about" onClick={(e) => scrollToSection(e, 'about')}> ABOUT </a>
+          <a href="#projects" onClick={(e) => scrollToSection(e, 'projects')}> PROJECTS </a>
+          <a href="#contacts" onClick={(e) => scrollToSection(e, 'contacts')}> CONTACT ME </a>
         </div>
       </div>
 
