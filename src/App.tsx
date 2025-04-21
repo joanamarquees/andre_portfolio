@@ -1,9 +1,14 @@
+import React from 'react'
 import './index.css'
+
+import SkillCloud from './components/skills-cloud'
+import Projects from './components/projects'
+import { projects } from './data/projects'
+
 import logo from './assets/arrz_logo.svg'
 import icon from './assets/arrz_icon.svg'
 import rw_interactive from './assets/rw_interactive.svg'
 import sky from './assets/sky.svg'
-import SkillCloud from './components/skills-cloud'
 import alma from './assets/alma.svg'
 
 function App() {
@@ -100,7 +105,19 @@ function App() {
           <SkillCloud />
         </div>
       </div>
-
+          
+      {/* Projects */}
+      <div id="projects" className="h-screen w-full pt-[10%] md:pt-[5%]">
+        <p className="font-jersey text-orange-400 text-3xl md:text-5xl p-5 md:p-10">PERSONAL PROJECTS</p>
+        <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hidden px-[calc(50%-112px)] sm:px-10 no-scrollbar">
+          {projects.map(project =>
+            <div className="snap-center shrink-0">
+              <Projects {...project} />
+            </div>
+          )}
+        </div>
+        <p className="font-jersey text-orange-400 text-3xl md:text-5xl p-5 md:p-10">FREELANCING PROJECTS</p>
+      </div>
       
     </div>
   )

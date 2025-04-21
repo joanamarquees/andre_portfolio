@@ -1,0 +1,18 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="200" fill="black" />
+  
+  <!-- Water waves -->
+  <path d="M0 140 Q20 130 40 140 T80 140 T120 140 T160 140 T200 140" stroke="white" fill="none" stroke-width="2" />
+
+  <!-- Floating ball -->
+  <circle cx="100" cy="120" r="12" fill="white" />
+
+  <!-- Sonar/map rings -->
+  <circle cx="100" cy="120" r="25" stroke="white" stroke-width="1" fill="none" />
+  <circle cx="100" cy="120" r="40" stroke="white" stroke-width="1" fill="none" stroke-dasharray="4 3" />
+
+  <!-- Signal lines upward -->
+  <path d="M95 100 Q100 90 105 100" stroke="white" fill="none" stroke-width="1" />
+  <path d="M93 95 Q100 80 107 95" stroke="white" fill="none" stroke-width="1" />
+
+</svg>

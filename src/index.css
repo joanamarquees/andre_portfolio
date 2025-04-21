@@ -1,11 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Martian+Mono:wght@100..800&family=Jersey+15&family=Martian+Mono:wght@100..800&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import "tailwindcss";
 
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
 @theme {  
   --font-space: "Space Mono", monospace;
   --font-jersey: "Jersey 15", sans-serif;
   --font-martian: "Martian Mono", monospace;
 } */
+
 
 /* 1. Use a more-intuitive box-sizing model */
 *, *::before, *::after {
