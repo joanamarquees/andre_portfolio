@@ -28,7 +28,7 @@ function App() {
   return (
     <div className="bg-black h-full w-screen text-martian overflow-x-hidden">
       {/* Header */}
-      <div className="fixed w-full flex h-[10%] items-center justify-between text-orange-400 font-jersey text-center text-lg sm:text-3xl px-5 md:px-10 bg-black/70 z-50">
+      <div className="fixed w-full flex h-[10%] items-center justify-between text-orange-400 font-jersey text-center text-lg sm:text-3xl px-5 md:px-10 bg-black/70 z-50 backdrop-blur-[2px] select-none">
         <a href="#home">
           <img src={logo} alt="Logo" className="sm:h-20 md:h-30 w-14 sm:w-20 md:w-30" />
         </a>
@@ -117,6 +117,38 @@ function App() {
           )}
         </div>
         <p className="font-jersey text-orange-400 text-3xl md:text-5xl p-5 md:p-10">FREELANCING PROJECTS</p>
+        {/* TODO: complete with services made for companies or privates */}
+      </div>
+
+      {/* Contact */}
+      <div id="contacts" className="flex flex-col h-screen w-full pt-[10%] px-5">
+        <div className="h-[93%] flex flex-col justify-between">
+          <div className="font-martian text-white text-6xl px-5 select-none">
+            <p>ANY COOL IDEAS?</p>
+            <p>OR JUST WANT TO TALK?</p>
+          </div>
+          {/* Contacts */}
+            <p className="font-jersey text-[13rem] leading-[0.8] select-none">
+              <a className="relative px-5 inline-block text-orange-400 transition-colors duration-150 bg-gradient-to-r from-orange-400 to-orange-400 bg-[length:0%_100%] bg-no-repeat hover:bg-[length:100%_100%] hover:text-orange-200" href="https://www.linkedin.com/in/andrefssantos/" target="_blank" rel="noopener noreferrer">
+              LINKEDIN
+              </a>
+              <br/>
+              <a className="relative px-5 inline-block text-orange-400 transition-colors duration-150 bg-gradient-to-r from-orange-400 to-orange-400 bg-[length:0%_100%] bg-no-repeat hover:bg-[length:100%_100%] hover:text-orange-200" href="https://github.com/arrzdev" target="_blank" rel="noopener noreferrer">
+              GITHUB
+              </a>
+              <br/>
+              <a className="relative px-5 inline-block text-orange-400 transition-colors duration-150 bg-gradient-to-r from-orange-400 to-orange-400 bg-[length:0%_100%] bg-no-repeat hover:bg-[length:100%_100%] hover:text-orange-200" href="mailto:andrefssantos@tecnico.ulisboa.pt">
+              EMAIL
+              </a>
+            </p>
+        </div>
+        {/* Footer */}
+        <div className="h-[7%] p-3">
+          <p className="text-white font-martian text-xs uppercase text-center">
+            © 2024 arrz. 
+            Made with <span className="text-orange-400">{"<3"}</span> in Portugal.
+          </p>
+        </div>
       </div>
       
     </div>
