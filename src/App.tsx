@@ -121,32 +121,53 @@ function App() {
       </div>
 
       {/* Contact */}
-      <div id="contacts" className="flex flex-col h-screen w-full pt-[10%] px-5">
-        <div className="h-[93%] flex flex-col justify-between">
-          <div className="font-martian text-white text-6xl px-5 select-none">
-            <p>ANY COOL IDEAS?</p>
-            <p>OR JUST WANT TO TALK?</p>
+      <div id="contacts" className="flex flex-col h-screen w-full pt-[10%] px-5 border-amber-500 border-2">
+        <div className="h-[93%] flex flex-col justify-end md:justify-baseline md:grid md:grid-cols-4 border-blue-500 border-2">
+          {/* Text Section */}
+          <div className="flex items-center justify-center md:col-span-1">
+        <div className="font-jersey text-white text-left select-none pt-5 md:rotate-[-90deg] md:whitespace-nowrap">
+          <p className="text-7xl md:text-7xl lg:text-[7rem] leading-[0.6]">
+            ANY COOL IDEAS?
+          </p>
+          <p className="text-6xl md:text-7xl lg:text-[8.5rem] leading-[0.6]">
+            OR JUST WANT
+          </p>
+          <p className="text-8xl md:text-9xl lg:text-[14rem] leading-[0.6]">
+            TO TALK?
+          </p>
+        </div>
           </div>
-          {/* Contacts */}
-            <p className="font-jersey text-[13rem] leading-[0.8] select-none">
-              <a className="relative px-5 inline-block text-orange-400 transition-colors duration-150 bg-gradient-to-r from-orange-400 to-orange-400 bg-[length:0%_100%] bg-no-repeat hover:bg-[length:100%_100%] hover:text-orange-200" href="https://www.linkedin.com/in/andrefssantos/" target="_blank" rel="noopener noreferrer">
-              LINKEDIN
-              </a>
-              <br/>
-              <a className="relative px-5 inline-block text-orange-400 transition-colors duration-150 bg-gradient-to-r from-orange-400 to-orange-400 bg-[length:0%_100%] bg-no-repeat hover:bg-[length:100%_100%] hover:text-orange-200" href="https://github.com/arrzdev" target="_blank" rel="noopener noreferrer">
-              GITHUB
-              </a>
-              <br/>
-              <a className="relative px-5 inline-block text-orange-400 transition-colors duration-150 bg-gradient-to-r from-orange-400 to-orange-400 bg-[length:0%_100%] bg-no-repeat hover:bg-[length:100%_100%] hover:text-orange-200" href="mailto:andrefssantos@tecnico.ulisboa.pt">
-              EMAIL
-              </a>
-            </p>
+
+          {/* Contact Links */}
+          <div className="flex flex-col justify-center md:col-span-3">
+        <p className="font-jersey text-8xl md:text-[10rem] lg:text-[15rem] leading-[0.8] text-left select-none border-pink-500 border-2">
+          {["LINKEDIN", "GITHUB", "EMAIL"].map((label, i) => {
+            const links = [
+          "https://www.linkedin.com/in/andrefssantos/",
+          "https://github.com/arrzdev",
+          "mailto:andrefssantos@tecnico.ulisboa.pt",
+            ];
+            return (
+          <a
+            key={label}
+            className="relative px-5 text-orange-400 transition-all duration-150 bg-gradient-to-r from-orange-400 to-orange-400 bg-[length:0%_100%] bg-no-repeat hover:bg-[length:100%_100%] hover:text-orange-200"
+            href={links[i]}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {label}
+            <br />
+          </a>
+            );
+          })}
+        </p>
+          </div>
         </div>
         {/* Footer */}
-        <div className="h-[7%] p-3">
+        <div className="h-[5%] lg:h-[7%] p-1 lg:p-3">
           <p className="text-white font-martian text-xs uppercase text-center">
-            © 2024 arrz. 
-            Made with <span className="text-orange-400">{"<3"}</span> in Portugal.
+        © 2024 arrz. 
+        Made with <span className="text-orange-400">{"<3"}</span> in Portugal.
           </p>
         </div>
       </div>
@@ -156,3 +177,24 @@ function App() {
 }
 
 export default App
+
+{/* Title */}
+{/* <div className="font-martian text-white text-6xl px-5 select-none origin-center -rotate-90 flex flex-col items-center justify-center h-full">
+<p>ANY COOL IDEAS?</p>
+<p>OR JUST WANT TO TALK?</p>
+</div> */}
+{/* Contacts */}
+{/* <p className="font-jersey text-[13rem] leading-[0.8] select-none">
+  <a className="relative px-5 inline-block text-orange-400 transition-colors duration-150 bg-gradient-to-r from-orange-400 to-orange-400 bg-[length:0%_100%] bg-no-repeat hover:bg-[length:100%_100%] hover:text-orange-200" href="https://www.linkedin.com/in/andrefssantos/" target="_blank" rel="noopener noreferrer">
+  LINKEDIN
+  </a>
+  <br/>
+  <a className="relative px-5 inline-block text-orange-400 transition-colors duration-150 bg-gradient-to-r from-orange-400 to-orange-400 bg-[length:0%_100%] bg-no-repeat hover:bg-[length:100%_100%] hover:text-orange-200" href="https://github.com/arrzdev" target="_blank" rel="noopener noreferrer">
+  GITHUB
+  </a>
+  <br/>
+  <a className="relative px-5 inline-block text-orange-400 transition-colors duration-150 bg-gradient-to-r from-orange-400 to-orange-400 bg-[length:0%_100%] bg-no-repeat hover:bg-[length:100%_100%] hover:text-orange-200" href="mailto:andrefssantos@tecnico.ulisboa.pt">
+  EMAIL
+  </a>
+</p>
+*/}
