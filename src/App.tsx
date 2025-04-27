@@ -1,12 +1,12 @@
 import React from 'react'
 import './index.css'
+import { motion } from 'framer-motion'
 
 import SkillCloud from './components/skills-cloud'
 import Projects from './components/projects'
 import { projects } from './data/projects'
 
 import logo from './assets/arrz_logo.svg'
-import icon from './assets/arrz_icon.svg'
 import rw_interactive from './assets/rw_interactive.svg'
 import sky from './assets/sky.svg'
 import alma from './assets/alma.svg'
@@ -42,20 +42,31 @@ function App() {
       </div>
 
       {/* Landing page */}
-      <div id="home" className="flex flex-col-reverse md:flex-row h-screen w-full items-center text-center md:text-left justify-center md:justify-between px-8 md:px-32 pt-[10%]">
-        <div className="flex flex-col w-full md:w-[80%] items-center md:items-start text-center md:text-left justify-center font-martian text-xl md:text-2xl lg:text-5xl text-white gap-4">
-          <p>Hi there 👋!</p>
-          {/* This awkward aproach is the correct way of having two different
-            stylizations and keep the correct text responsiveness */}
-          <p className="flex flex-wrap items-center text-center md:text-left justify-center md:justify-start gap-1">
-            <span>I'm arrz</span>
-            <span className="text-orange-400">{'{ aka Arroz }'}</span>
+      <div id="home" className="flex max-h-screen max-w-full pt-[5%] text-white items-center justify-center">
+        <div className="h-full w-full flex flex-col justify-between items-center font-jersey leading-none select-none py-48 md:py-36 lg:py-14">
+          <motion.p 
+            initial={{ x: -1000, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="w-full text-center sm:text-left px-5 text-[20vw] whitespace-nowrap"
+          >
+            FULL-STACK
+          </motion.p>
+          
+          <p className="text-[6vw] whitespace-nowrap text-center">
+            HI THERE ! I'M ARRZ <span className="text-orange-400">( AKA ARROZ )</span>
           </p>
-          <p className="pl-0 md:pl-24">a backend developer</p>
-        </div>
-
-        <div className="transform -scale-x-100 items-center justify-center">          
-          <img src={icon} alt="Bunny icon" className="h-40 md:h-[50rem] w-40 md:w-70"/>
+          
+          <motion.div 
+            initial={{ x: 1000, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="w-full flex justify-center sm:justify-end"
+          >
+            <p className="bg-orange-400 rounded-md md:rounded-l-md text-center sm:text-right px-5 text-[20vw] whitespace-nowrap">
+              DEVELOPER
+            </p>
+          </motion.div>
         </div>
       </div>
 
