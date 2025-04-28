@@ -11,6 +11,54 @@
   }
 }
 
+/* PIXEL BUTTON */
+.pixel-button {
+  height: fit-content;
+  width: fit-content;
+  margin: 5px;
+  padding: 5px;
+  position: relative;
+  display: block;
+  cursor: pointer;
+  background: #ff8904;
+  z-index: 2;
+  
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.pixel-button:active {
+  top: 2px;
+}
+
+.pixel-button::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: -10px;
+  right: -10px;
+  background: #ff8904;
+  z-index: -1;
+}
+
+.pixel-button::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: -6px;
+  right: -6px;
+  background: #ff8904;
+  z-index: -1;
+}
+
 @theme {  
   --font-space: "Space Mono", monospace;
   --font-jersey: "Jersey 15", sans-serif;

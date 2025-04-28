@@ -118,9 +118,9 @@ function App() {
       </div>
           
       {/* Projects */}
-      <div id="projects" className="h-screen w-full pt-[10%] md:pt-[5%]">
+      <div id="projects" className="min-h-screen h-full w-full pt-[10%] md:pt-[5%]">
         <p className="font-jersey text-orange-400 text-3xl md:text-5xl p-5 md:p-10">PERSONAL PROJECTS</p>
-        <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hidden px-[calc(50%-112px)] sm:px-10 no-scrollbar">
+        <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hidden px-5 sm:px-10 no-scrollbar py-[1vh]">
           {projects.map(project =>
             <div className="snap-center shrink-0">
               <Projects {...project} />
@@ -129,6 +129,24 @@ function App() {
         </div>
         <p className="font-jersey text-orange-400 text-3xl md:text-5xl p-5 md:p-10">FREELANCING PROJECTS</p>
         {/* TODO: complete with services made for companies or privates */}
+        <div className="flex justify-center items-center w-full">
+            <div className="w-[95vw] h-[80vh] bg-zinc-800 border-[3px] border-t-zinc-600 border-l-zinc-600 border-r-zinc-900 border-b-zinc-900 shadow-md font-martian">
+              {/* Window Header */}
+              <div className="h-6 bg-orange-400 flex items-center justify-between px-2">
+                <span className="text-zinc-800 text-xs">project name</span>
+                <div className="flex gap-1">
+                  <div className="w-5 h-5 bg-zinc-800 border border-t-zinc-600 border-l-zinc-600 border-r-zinc-900 border-b-zinc-900 hover:border-t-zinc-900 hover:border-l-zinc-900 hover:border-r-zinc-600 hover:border-b-zinc-600 text-xs flex items-center justify-center text-white pb-2 select-none">_</div>
+                  <div className="w-5 h-5 bg-zinc-800 border border-t-zinc-600 border-l-zinc-600 border-r-zinc-900 border-b-zinc-900 hover:border-t-zinc-900 hover:border-l-zinc-900 hover:border-r-zinc-600 hover:border-b-zinc-600 text-xs flex items-center justify-center text-white pb-0.5 select-none">□</div>
+                  <div className="w-5 h-5 bg-zinc-800 border border-t-zinc-600 border-l-zinc-600 border-r-zinc-900 border-b-zinc-900 hover:border-t-zinc-900 hover:border-l-zinc-900 hover:border-r-zinc-600 hover:border-b-zinc-600 text-xs flex items-center justify-center text-white p-0.5 select-none">×</div>
+                </div>
+              </div>
+
+              {/* Window Content */}
+              <div className="h-[calc(100%-1.5rem)] p-4 bg-black border-[2px] border-t-zinc-700 border-l-zinc-700 border-r-zinc-600 border-b-zinc-600 m-1">
+                <p className="text-white">Coming soon...</p>
+              </div>
+            </div>
+        </div>
       </div>
 
       {/* Contact */}

@@ -1,27 +1,64 @@
 import { ProjectType } from '../data/projects.tsx'
-import { FaGithub } from 'react-icons/fa'
+import * as SiIcons from 'react-icons/si';  // Import all icons from Si
 
 const Projects = (project: ProjectType) => {
   return (
-    <div className="h-72 w-56 border-orange-300 border-2 rounded-lg p-3 flex flex-col justify-between">
-      <div>
-        <img src={project.image} alt="KahootBot" className="w-full h-30 rounded-lg"/>
-        <p className="font-jersey text-2xl text-left text-orange-400 leading-none">{project.name}</p>
-        <p className="font-martian text-white text-xs text-left">
-          {project.description}
-        </p>
-      </div>
-      <div className="flex justify-between items-end">
-        <a href={project.gitLink.toString()} 
-           className="text-orange-200 hover:text-orange-400 transition-colors"
-           target="_blank"
-           rel="noopener noreferrer">
-          <FaGithub size={24} />
-        </a>
-        <p className="font-martian text-white text-[9px]">{project.date}</p>
-      </div>
-    </div>
-  )
-}
+    <div className="relative inline-block h- w-56">
+      
+      {/* Pixel Border */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Top and Bottom Lines */}
+        <div className="absolute top-0 left-3 right-3 h-1 bg-orange-400"/>
+        <div className="absolute bottom-0 left-3 right-3 h-1 bg-orange-400"/>
 
-export default Projects
+        {/* Side Lines */}
+        <div className="absolute top-3 bottom-3 left-0 w-1 bg-orange-400"/>
+        <div className="absolute top-3 bottom-3 right-0 w-1 bg-orange-400"/>
+
+        {/* Corner Squares */}
+        {/* Left corner */}
+        <div className="absolute top-2 left-1 w-1 h-1 bg-orange-400"/>
+        <div className="absolute top-1 left-2 w-1 h-1 bg-orange-400"/>
+
+        {/* Right corner */}
+        <div className="absolute top-2 right-1 w-1 h-1 bg-orange-400"/>
+        <div className="absolute top-1 right-2 w-1 h-1 bg-orange-400"/>
+
+        {/* Bottom left corner */}
+        <div className="absolute bottom-2 left-1 w-1 h-1 bg-orange-400"/>
+        <div className="absolute bottom-1 left-2 w-1 h-1 bg-orange-400"/>
+
+        {/* Bottom right corner */}
+        <div className="absolute bottom-2 right-1 w-1 h-1 bg-orange-400"/>
+        <div className="absolute bottom-1 right-2 w-1 h-1 bg-orange-400"/>
+      </div>
+
+      {/* Actual Card Content */}
+      <div className="relative h-full w-full p-3 flex flex-col justify-between items-center bg-transparent gap-4">
+        <div>
+          <img src={project.image} alt={project.name.toString()} className="w-full h-24 rounded-lg"/>
+          <p className="font-jersey text-2xl text-center text-white leading-none uppercase">{project.name}</p>
+        </div>
+
+        {/* Tech Stack (Icons) */}
+        <div className="flex flex-wrap justify-center gap-3 text-sm text-white">
+          {project.stack && project.stack.map((tech, index) => {
+            // Dynamically get the icon component from SiIcons object
+            const Icon = SiIcons[tech];
+            return Icon ? (
+              <Icon key={index} className="text-white w-6 h-6" />
+            ) : null;
+          })}
+        </div>
+
+        {/* Pixel Button */}
+        <button className="pixel-button" onClick={() => window.open(project.gitLink.toString(), '_blank')}>
+          <p className="font-jersey text-black text-xl">VIEW PROJECT</p>
+        </button>
+      </div>
+
+    </div>
+  );
+};
+
+export default Projects;
