@@ -206,10 +206,18 @@ function App() {
         </div>
         {/* Footer */}
         <div className="h-[5%] lg:h-[7%] p-1 lg:p-3">
-          <p className="text-white font-martian text-xs uppercase text-center">
-        © 2024 arrz. 
-        Made with <span className="text-orange-400">{"<3"}</span> in Portugal.
-          </p>
+            <p className="text-white font-martian text-xs uppercase text-center">
+            © 2024 arrz. 
+            Made with <span className="text-orange-400">{"<3"}</span> in Portugal by{' '}
+            <a 
+              href="https://juma-portfolio.vercel.app/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-orange-300 hover:text-orange-200"
+            >
+              Joana M.
+            </a>
+            </p>
         </div>
       </div>
       

@@ -18,4 +18,8 @@ export const companies: Company[] = [
     icon: '/src/assets/alma.svg',
     showName: true,
   },
+  {
+    name: 'ATHINKETH',
+    icon: '/src/assets/athinketh.svg',
+  }
 ];
