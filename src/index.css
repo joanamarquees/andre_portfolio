@@ -11,6 +11,23 @@
   }
 }
 
+/* INFINITE SCROLL ANIMATION */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.scroll-animation {
+  animation: scroll 10s linear infinite;
+  width: max-content;
+}
+
+
+
 /* PIXEL BUTTON */
 .pixel-button {
   height: fit-content;

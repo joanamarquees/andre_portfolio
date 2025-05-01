@@ -7,9 +7,7 @@ import Projects from './components/projects'
 import { projects } from './data/projects'
 
 import logo from './assets/arrz_logo.svg'
-import rw_interactive from './assets/rw_interactive.svg'
-import sky from './assets/sky.svg'
-import alma from './assets/alma.svg'
+import { companies } from './data/companies'
 
 function App() {
 
@@ -71,48 +69,57 @@ function App() {
       </div>
 
       {/* Skills & tools and companies/works */}
-      <div id="about" className="flex flex-col md:flex-row h-screen w-full pt-[10%]">
+      <div id="about" className="grid grid-cols-1 md:grid-cols-2 min-h-screen w-full pt-[10%] px-5 md:px-10">
         {/* ABOUT text */}
-        <div className="flex flex-col w-full md:w-[50%] items-center md:items-start text-center md:text-left justify-center font-martian text-sm md:text-lg lg:text-xl text-white gap-4 px-6 leading-relaxed">
-          <div className="sm:pl-10 lg:pl-20">
+        <div className="flex flex-col items-center md:items-start text-center md:text-left justify-center font-martian text-sm md:text-lg lg:text-xl text-white gap-4 px-6 leading-relaxed">
+          <div className="flex flex-col gap-3">
             <p>
-              I’m André
+              I'm André
               <span className="text-orange-400 font-semibold"> {"{ a backend-loving, full-stack-capable }"} </span>
-              who’d rather scale servers than drink coffee.
+              who'd rather scale servers than drink coffee.
             </p>
             <p>
               I enjoy turning complex logic into clean, efficient code — whether it's APIs,
               containers, or DevOps pipelines. 
             </p>
             <p>
-              <span className="text-orange-300 font-medium">Off the clock?</span>
-              I’m usually gaming, cruising in my car 🚗, hanging out with my two bunnies 🐇🐇,
+              <span className="text-orange-300 font-bold uppercase">Off the clock? </span>
+              I'm usually gaming, cruising in my car 🚗, hanging out with my two bunnies 🐇🐇,
               or pretending to be productive while actually optimizing my PC setup.
             </p>
             <p className="text-orange-300 font-medium">
-              Let’s build cool stuff (and maybe grill something too)!
+              Let's build cool stuff (and maybe grill something too)!
             </p>
           </div>
 
           {/* Companies */}
-          <div className="flex w-full pt-5 md:pt-10 gap-4 md:gap-8 text-white justify-center items-end">
-            <div className="h-12 md:h-15 w-fit p-1 bg-zinc-900 rounded-md">
-              <img src={rw_interactive} alt="rw interactive" className="h-10 md:h-12" />
-            </div>
-
-            <div className="h-12 md:h-15 w-fit p-2 bg-zinc-900 rounded-md">
-              <img src={sky} alt="sky portugal" className="h-10 md:h-12"/>
-            </div>
-
-            <div className="flex h-12 md:h-15 w-fit  p-2 bg-zinc-900 rounded-md items-center gap-1 md:gap-2">
-              <img src={alma} alt="sky portugal" className="h-10 md:h-12"/>
-              <p className="text-zinc-400 text-xs md:text-base"> ALMA </p>
+          <div className="w-full pt-5 text-white 
+                          [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent_100%)]">
+            <div className="flex whitespace-nowrap gap-4 md:gap-8 scroll-animation">
+              {[...companies, ...companies].map((company, index) => (
+                <div 
+                  key={`${company.name}-${index}`}
+                  className="flex-shrink-0 h-12 md:h-15 w-fit p-2 bg-zinc-900 rounded-md items-center gap-1 md:gap-2 flex"
+                >
+                  <img 
+                    src={company.icon} 
+                    alt={company.name} 
+                    className="h-[5vh]"
+                  />
+                  {company.showName && (
+                    <p className="text-zinc-400 text-xs md:text-base whitespace-nowrap">
+                      {company.name}
+                    </p>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
+
         </div>
         
         {/* Skills & tools */}
-        <div className="h-[50%] md:h-full w-full md:w-[50%] px-4 md:p-10">
+        <div className="h-[50vh] md:h-full md:p-10">
           <SkillCloud />
         </div>
       </div>
