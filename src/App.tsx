@@ -4,10 +4,11 @@ import { motion } from 'framer-motion'
 
 import SkillCloud from './components/skills-cloud'
 import Projects from './components/projects'
-import { projects } from './data/projects'
+import { projects, freelancingProjects } from './data/projects'
 
 import logo from './assets/arrz_logo.svg'
 import { companies } from './data/companies'
+import FeaturedProject from './components/featured-project'
 
 function App() {
 
@@ -40,7 +41,7 @@ function App() {
       </div>
 
       {/* Landing page */}
-      <div id="home" className="flex max-h-screen max-w-full pt-[5%] text-white items-center justify-center">
+      <div id="home" className="flex min-h-screen max-w-full pt-[5%] text-white items-center justify-center">
         <div className="h-full w-full flex flex-col justify-between items-center font-jersey leading-none select-none py-48 md:py-36 lg:py-14">
           <motion.p 
             initial={{ x: -1000, opacity: 0 }}
@@ -68,7 +69,7 @@ function App() {
         </div>
       </div>
 
-      {/* Skills & tools and companies/works */}
+      {/* About section - skills/tools & companies/works */}
       <div id="about" className="grid grid-cols-1 md:grid-cols-2 min-h-screen w-full pt-[10%] px-5 md:px-10">
         {/* ABOUT text */}
         <div className="flex flex-col items-center md:items-start text-center md:text-left justify-center font-martian text-sm md:text-lg lg:text-xl text-white gap-4 px-6 leading-relaxed">
@@ -127,12 +128,12 @@ function App() {
       {/* Projects */}
       <div id="projects" className="min-h-screen h-full w-full pt-[10%] md:pt-[5%]">
         <p className="font-jersey text-orange-400 text-3xl md:text-5xl px-5 md:px-10 py-[2vh]">FEATURED PROJECTS</p>
-        {/* TODO: complete with services made for companies or privates */}
+        {/* Featured projects */}
         <div className="flex justify-center items-center w-full">
             <div className="w-[95vw] h-[80vh] bg-zinc-800 border-[3px] border-t-zinc-600 border-l-zinc-600 border-r-zinc-900 border-b-zinc-900 shadow-md font-martian">
               {/* Window Header */}
               <div className="h-6 bg-orange-400 flex items-center justify-between px-2">
-                <span className="text-zinc-800 text-xs">project name</span>
+                <span className="text-zinc-800 text-xs">{freelancingProjects[0].id}</span>
                 <div className="flex gap-1">
                   <div className="w-5 h-5 bg-zinc-800 border border-t-zinc-600 border-l-zinc-600 border-r-zinc-900 border-b-zinc-900 hover:border-t-zinc-900 hover:border-l-zinc-900 hover:border-r-zinc-600 hover:border-b-zinc-600 text-xs flex items-center justify-center text-white pb-2 select-none">_</div>
                   <div className="w-5 h-5 bg-zinc-800 border border-t-zinc-600 border-l-zinc-600 border-r-zinc-900 border-b-zinc-900 hover:border-t-zinc-900 hover:border-l-zinc-900 hover:border-r-zinc-600 hover:border-b-zinc-600 text-xs flex items-center justify-center text-white pb-0.5 select-none">□</div>
@@ -142,7 +143,7 @@ function App() {
 
               {/* Window Content */}
               <div className="h-[calc(100%-1.5rem)] p-4 bg-black border-[2px] border-t-zinc-700 border-l-zinc-700 border-r-zinc-600 border-b-zinc-600 m-1">
-                <p className="text-white">Coming soon...</p>
+                <FeaturedProject {...freelancingProjects[0]}/>
               </div>
             </div>
         </div>

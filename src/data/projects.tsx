@@ -13,7 +13,7 @@ import synced_city from '../assets/outline_svgs/synced-city.svg'
 import kaboom_clash from '../assets/outline_svgs/boomberman.svg'
 
 // COMPANY LOGOS
-import alma from './assets/alma.svg'
+import alma from '../assets/alma.svg'
 
 
 import * as SiIcons from 'react-icons/si';
@@ -33,7 +33,10 @@ export const stackLabels: { [key in keyof typeof SiIcons]?: string } = {
   SiC: "C",
   SiOpencv: "OpenCV",
   SiTensorflow: "TensorFlow",
-  SiSelenium: "Selenium"
+  SiSelenium: "Selenium",
+  SiShopify: "Shopify",
+  SiRemix: "Remix",
+  SiCloudflare: "Cloudflare",
 };
 // INDIVIDUAL PROJECTS - interface and data
 export interface ProjectType {
@@ -149,5 +152,34 @@ export const projects: ProjectType[] = [
     gitLink: "https://github.com/arrzdev/KahootBot",
     date: "april 2021",
     stack: ["SiPython", "SiOpencv", "SiSelenium"],
+  },
+]
+
+// FEATURED PROJECTS - interface and data
+export interface FeaturedProjectType {
+  id: String,
+  image: any,
+  name: String,
+  description: String,
+  role: String,
+  date: String,
+  stack: (keyof typeof SiIcons)[]; // Only valid keys from SiIcons
+  client: String,
+  clientLink: String,
+  clientLogo: any,
+}
+
+export const freelancingProjects: FeaturedProjectType[] = [
+  { 
+    id: "shop-together",
+    image: "",
+    name: "Shop Together",
+    description: "At Shop Together, I served as the lead Full-Stack Developer, building a custom Shopify-integrated browser extension from the ground up. The project required a deep understanding of the Shopify API ecosystem, including storefront access, checkout flows, and product data integration. I engineered the entire architecture, incorporating modern frameworks while learning and utilizing Cloudflare tools—such as Workers and Durable Objects—to handle edge processing and ensure a responsive, scalable experience. This project is a strong example of my ability to independently deliver complex, API-driven applications and rapidly adapt to unfamiliar technologies.",
+    role: "Full-stack Developer",
+    date: "February 2025 - May 2025",
+    stack: ["SiReact", "SiShopify", "SiRemix", "SiCloudflare"], // add multisynq icon, or arrows diverging
+    client: "ALMA",
+    clientLink: "https://alma.dev/",
+    clientLogo: alma,
   },
 ]
