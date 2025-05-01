@@ -119,15 +119,7 @@ function App() {
           
       {/* Projects */}
       <div id="projects" className="min-h-screen h-full w-full pt-[10%] md:pt-[5%]">
-        <p className="font-jersey text-orange-400 text-3xl md:text-5xl p-5 md:p-10">PERSONAL PROJECTS</p>
-        <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hidden px-5 sm:px-10 no-scrollbar py-[1vh]">
-          {projects.map(project =>
-            <div className="snap-center shrink-0">
-              <Projects {...project} />
-            </div>
-          )}
-        </div>
-        <p className="font-jersey text-orange-400 text-3xl md:text-5xl p-5 md:p-10">FREELANCING PROJECTS</p>
+        <p className="font-jersey text-orange-400 text-3xl md:text-5xl px-5 md:px-10 py-[2vh]">FEATURED PROJECTS</p>
         {/* TODO: complete with services made for companies or privates */}
         <div className="flex justify-center items-center w-full">
             <div className="w-[95vw] h-[80vh] bg-zinc-800 border-[3px] border-t-zinc-600 border-l-zinc-600 border-r-zinc-900 border-b-zinc-900 shadow-md font-martian">
@@ -146,6 +138,14 @@ function App() {
                 <p className="text-white">Coming soon...</p>
               </div>
             </div>
+        </div>
+        <p className="font-jersey text-orange-400 text-3xl md:text-5xl p-5 md:p-10">SMALL PROJECTS</p>
+        <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hidden px-5 sm:px-10 no-scrollbar py-[1vh]">
+          {projects.map(project =>
+            <div className="snap-center shrink-0">
+              <Projects {...project} />
+            </div>
+          )}
         </div>
       </div>
 
@@ -184,7 +184,7 @@ function App() {
                 return (
               <a
                 key={label}
-                className="relative px-5 text-orange-400 transition-all duration-150 bg-gradient-to-r from-orange-400 to-orange-400 bg-[length:0%_100%] bg-no-repeat hover:bg-[length:100%_100%] hover:text-orange-200"
+                className="relative px-5 text-orange-400 transition-all duration-200 bg-gradient-to-r from-orange-400 to-orange-400 bg-[length:0%_100%] bg-no-repeat hover:bg-[length:100%_100%] hover:text-orange-200"
                 href={links[i]}
                 target="_blank"
                 rel="noopener noreferrer"

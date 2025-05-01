@@ -1,25 +1,48 @@
-import kahootbot from '../assets/kahootbot.svg';
-import disney_clone from '../assets/disney+clone.svg'
-import drift_ml from '../assets/drift-ml.svg'
-import airline from '../assets/airline.svg'
-import ticketline from '../assets/ticket-line.svg'
-import timelapse from '../assets/timelapse.svg'
-import nami from '../assets/nami.svg'
-import smart from '../assets/smart-city.svg'
-import feelings from '../assets/feeling-analyser.svg'
-import furutsu from '../assets/furutsu.svg'
-import shop from '../assets/smart-shopping.svg'
-import synced_city from '../assets/synced-city.svg'
-import kaboom_clash from '../assets/boomberman.svg'
+import disney_clone from '../assets/outline_svgs/disney+clone.svg'
+import kahootbot from '../assets/outline_svgs/kahootbot.svg';
+import drift_ml from '../assets/outline_svgs/drift-ml.svg'
+import airline from '../assets/outline_svgs/airline.svg'
+import ticketline from '../assets/outline_svgs/ticket-line.svg'
+import timelapse from '../assets/outline_svgs/timelapse.svg'
+import nami from '../assets/outline_svgs/nami.svg'
+import smart from '../assets/outline_svgs/smart-city.svg'
+import feelings from '../assets/outline_svgs/feeling-analyser.svg'
+import furutsu from '../assets/outline_svgs/furutsu.svg'
+import shop from '../assets/outline_svgs/smart-shopping.svg'
+import synced_city from '../assets/outline_svgs/synced-city.svg'
+import kaboom_clash from '../assets/outline_svgs/boomberman.svg'
+
+// COMPANY LOGOS
+import alma from './assets/alma.svg'
+
 
 import * as SiIcons from 'react-icons/si';
+
+// LABELS FOR THE STACK ICONS
+export const stackLabels: { [key in keyof typeof SiIcons]?: string } = {
+  SiReact: "React",
+  SiTypescript: "TypeScript",
+  SiTailwindcss: "Tailwind CSS",
+  SiNextdotjs: "Next.js",
+  SiPython: "Python",
+  SiPrisma: "Prisma",
+  SiJavascript: "JavaScript",
+  SiCss3: "CSS",
+  SiMongodb: "MongoDB",
+  SiArduino: "Arduino",
+  SiC: "C",
+  SiOpencv: "OpenCV",
+  SiTensorflow: "TensorFlow",
+  SiSelenium: "Selenium"
+};
+// INDIVIDUAL PROJECTS - interface and data
 export interface ProjectType {
   image: any,
   name: String,
   description: String,
   gitLink: String,
   date: String,
-  stack?: (keyof typeof SiIcons)[]; // Only valid keys from SiIcons
+  stack: (keyof typeof SiIcons)[]; // Only valid keys from SiIcons
 }
 
 export const projects: ProjectType[] = [
