@@ -1,19 +1,19 @@
-import disney_clone from '../assets/outline_svgs/disney+clone.svg'
-import kahootbot from '../assets/outline_svgs/kahootbot.svg';
-import drift_ml from '../assets/outline_svgs/drift-ml.svg'
-import airline from '../assets/outline_svgs/airline.svg'
-import ticketline from '../assets/outline_svgs/ticket-line.svg'
-import timelapse from '../assets/outline_svgs/timelapse.svg'
-import nami from '../assets/outline_svgs/nami.svg'
-import smart from '../assets/outline_svgs/smart-city.svg'
-import feelings from '../assets/outline_svgs/feeling-analyser.svg'
-import furutsu from '../assets/outline_svgs/furutsu.svg'
-import shop from '../assets/outline_svgs/smart-shopping.svg'
-import synced_city from '../assets/outline_svgs/synced-city.svg'
-import kaboom_clash from '../assets/outline_svgs/boomberman.svg'
+import disney_clone from '@/assets/outline_svgs/disney+clone.svg'
+import kahootbot from '@/assets/outline_svgs/kahootbot.svg';
+import drift_ml from '@/assets/outline_svgs/drift-ml.svg'
+import airline from '@/assets/outline_svgs/airline.svg'
+import ticketline from '@/assets/outline_svgs/ticket-line.svg'
+import timelapse from '@/assets/outline_svgs/timelapse.svg'
+import nami from '@/assets/outline_svgs/nami.svg'
+import smart from '@/assets/outline_svgs/smart-city.svg'
+import feelings from '@/assets/outline_svgs/feeling-analyser.svg'
+import furutsu from '@/assets/outline_svgs/furutsu.svg'
+import shop from '@/assets/outline_svgs/smart-shopping.svg'
+import synced_city from '@/assets/outline_svgs/synced-city.svg'
+import kaboom_clash from '@/assets/outline_svgs/boomberman.svg'
 
 // COMPANY LOGOS
-import alma from '../assets/alma.svg'
+import alma from '@/assets/alma.svg'
 
 
 import * as SiIcons from 'react-icons/si';
@@ -172,6 +172,30 @@ export interface FeaturedProjectType {
 export const freelancingProjects: FeaturedProjectType[] = [
   { 
     id: "shop-together",
+    image: "",
+    name: "Shop Together",
+    description: "At Shop Together, I served as the lead Full-Stack Developer, building a custom Shopify-integrated browser extension from the ground up. The project required a deep understanding of the Shopify API ecosystem, including storefront access, checkout flows, and product data integration. I engineered the entire architecture, incorporating modern frameworks while learning and utilizing Cloudflare tools—such as Workers and Durable Objects—to handle edge processing and ensure a responsive, scalable experience. This project is a strong example of my ability to independently deliver complex, API-driven applications and rapidly adapt to unfamiliar technologies.",
+    role: "Full-stack Developer",
+    date: "February 2025 - May 2025",
+    stack: ["SiReact", "SiShopify", "SiRemix", "SiCloudflare"], // add multisynq icon, or arrows diverging
+    client: "ALMA",
+    clientLink: "https://alma.dev/",
+    clientLogo: alma,
+  },
+  { 
+    id: "smartreg",
+    image: "",
+    name: "Shop Together",
+    description: "At Shop Together, I served as the lead Full-Stack Developer, building a custom Shopify-integrated browser extension from the ground up. The project required a deep understanding of the Shopify API ecosystem, including storefront access, checkout flows, and product data integration. I engineered the entire architecture, incorporating modern frameworks while learning and utilizing Cloudflare tools—such as Workers and Durable Objects—to handle edge processing and ensure a responsive, scalable experience. This project is a strong example of my ability to independently deliver complex, API-driven applications and rapidly adapt to unfamiliar technologies.",
+    role: "Full-stack Developer",
+    date: "February 2025 - May 2025",
+    stack: ["SiReact", "SiShopify", "SiRemix", "SiCloudflare"], // add multisynq icon, or arrows diverging
+    client: "ALMA",
+    clientLink: "https://alma.dev/",
+    clientLogo: alma,
+  },
+  { 
+    id: "twitch",
     image: "",
     name: "Shop Together",
     description: "At Shop Together, I served as the lead Full-Stack Developer, building a custom Shopify-integrated browser extension from the ground up. The project required a deep understanding of the Shopify API ecosystem, including storefront access, checkout flows, and product data integration. I engineered the entire architecture, incorporating modern frameworks while learning and utilizing Cloudflare tools—such as Workers and Durable Objects—to handle edge processing and ensure a responsive, scalable experience. This project is a strong example of my ability to independently deliver complex, API-driven applications and rapidly adapt to unfamiliar technologies.",

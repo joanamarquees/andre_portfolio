@@ -1,4 +1,4 @@
-import { FeaturedProjectType, stackLabels } from '../data/projects';
+import { FeaturedProjectType, stackLabels } from '@/data/projects';
 import * as SiIcons from 'react-icons/si';
 
 const FeaturedProject = ( project: FeaturedProjectType ) => {

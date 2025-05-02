@@ -1,4 +1,4 @@
-import { ProjectType, stackLabels } from '../data/projects.tsx'
+import { ProjectType, stackLabels } from '@/data/projects'
 import * as SiIcons from 'react-icons/si';  // Import all icons from Si
 
 const Projects = (project: ProjectType) => {

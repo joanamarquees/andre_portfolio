@@ -1,31 +1,30 @@
-import React from 'react'
+import { useRef } from 'react'
 import './index.css'
 import { motion } from 'framer-motion'
+import logo from '@/assets/arrz_logo.svg'
 
-import SkillCloud from './components/skills-cloud'
-import Projects from './components/projects'
-import { projects, freelancingProjects } from './data/projects'
+import { useScroll } from '@/hooks'
 
-import logo from './assets/arrz_logo.svg'
-import { companies } from './data/companies'
-import FeaturedProject from './components/featured-project'
+import { SkillCloud, Project, FeaturedProject } from '@/components'
+import { companies } from '@/data/companies'
+import { projects, freelancingProjects } from '@/data/projects'
+import { scrollToSection } from './utils'
+
+const createDynamicGradient = (gradientType: "start" | "end" | "middle" | "full") => {
+  if (gradientType == "start") return "[mask-image:linear-gradient(to_right,transparent,black_0%,black_90%,transparent_100%)]"
+  if (gradientType == "middle") return "[mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent_100%)]"
+  if (gradientType == "end") return "[mask-image:linear-gradient(to_right,transparent,black_10%,black_100%,transparent_100%)]"
+  if (gradientType == "full") return ""
+}
 
 function App() {
-
-  {/* Scroll effect for the header buttons */}
-  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string, scrollBlock='start' as ScrollLogicalPosition) => {
-    e.preventDefault();
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: scrollBlock
-      });
-    }
-  };
+  const projectsScrollRef = useRef(null)
+  const projectsScrollState = useScroll(projectsScrollRef)
+  const dynamicGradient = createDynamicGradient(projectsScrollState)
 
   return (
     <div className="bg-black h-full w-screen text-martian overflow-x-hidden">
+      
       {/* Header */}
       <div className="fixed w-full flex h-[10%] items-center justify-between text-orange-400 font-jersey text-center text-lg sm:text-3xl px-5 md:px-10 bg-black/70 z-50 backdrop-blur-[2px] select-none">
         <a href="#home">
@@ -126,40 +125,44 @@ function App() {
       </div>
           
       {/* Projects */}
-      <div id="projects" className="min-h-screen h-full w-full pt-[10%] md:pt-[5%]">
-        <p className="font-jersey text-orange-400 text-3xl md:text-5xl px-5 md:px-10 py-[2vh]">FEATURED PROJECTS</p>
-        {/* Featured projects */}
-        <div className="flex justify-center items-center w-full">
-            <div className="w-[95vw] h-[80vh] bg-zinc-800 border-[3px] border-t-zinc-600 border-l-zinc-600 border-r-zinc-900 border-b-zinc-900 shadow-md font-martian">
-              {/* Window Header */}
-              <div className="h-6 bg-orange-400 flex items-center justify-between px-2">
-                <span className="text-zinc-800 text-xs">{freelancingProjects[0].id}</span>
-                <div className="flex gap-1">
-                  <div className="w-5 h-5 bg-zinc-800 border border-t-zinc-600 border-l-zinc-600 border-r-zinc-900 border-b-zinc-900 hover:border-t-zinc-900 hover:border-l-zinc-900 hover:border-r-zinc-600 hover:border-b-zinc-600 text-xs flex items-center justify-center text-white pb-2 select-none">_</div>
-                  <div className="w-5 h-5 bg-zinc-800 border border-t-zinc-600 border-l-zinc-600 border-r-zinc-900 border-b-zinc-900 hover:border-t-zinc-900 hover:border-l-zinc-900 hover:border-r-zinc-600 hover:border-b-zinc-600 text-xs flex items-center justify-center text-white pb-0.5 select-none">□</div>
-                  <div className="w-5 h-5 bg-zinc-800 border border-t-zinc-600 border-l-zinc-600 border-r-zinc-900 border-b-zinc-900 hover:border-t-zinc-900 hover:border-l-zinc-900 hover:border-r-zinc-600 hover:border-b-zinc-600 text-xs flex items-center justify-center text-white p-0.5 select-none">×</div>
+      <div id="projects" className="min-h-screen h-full w-full pt-[10%] md:pt-[5%] space-y-5">
+        <div className="px-5 space-y-5">
+          <p className="font-jersey text-orange-400 text-3xl md:text-5xl">FEATURED PROJECTS</p>
+          {/* Featured projects */}
+          <div className="flex justify-center items-center w-full">
+              <div className="h-[80vh] bg-zinc-800 border-[3px] border-t-zinc-600 border-l-zinc-600 border-r-zinc-900 border-b-zinc-900 shadow-md font-martian">
+                {/* Window Header */}
+                <div className="h-6 bg-orange-400 flex items-center justify-between px-2">
+                  <span className="text-zinc-800 text-xs">{freelancingProjects[0].id}</span>
+                  <div className="flex gap-1">
+                    <div className="w-5 h-5 bg-zinc-800 border border-t-zinc-600 border-l-zinc-600 border-r-zinc-900 border-b-zinc-900 hover:border-t-zinc-900 hover:border-l-zinc-900 hover:border-r-zinc-600 hover:border-b-zinc-600 text-xs flex items-center justify-center text-white pb-2 select-none">_</div>
+                    <div className="w-5 h-5 bg-zinc-800 border border-t-zinc-600 border-l-zinc-600 border-r-zinc-900 border-b-zinc-900 hover:border-t-zinc-900 hover:border-l-zinc-900 hover:border-r-zinc-600 hover:border-b-zinc-600 text-xs flex items-center justify-center text-white pb-0.5 select-none">□</div>
+                    <div className="w-5 h-5 bg-zinc-800 border border-t-zinc-600 border-l-zinc-600 border-r-zinc-900 border-b-zinc-900 hover:border-t-zinc-900 hover:border-l-zinc-900 hover:border-r-zinc-600 hover:border-b-zinc-600 text-xs flex items-center justify-center text-white p-0.5 select-none">×</div>
+                  </div>
+                </div>
+
+                {/* Window Content */}
+                <div className="h-[calc(100%-1.5rem)] p-4 bg-black border-[2px] border-t-zinc-700 border-l-zinc-700 border-r-zinc-600 border-b-zinc-600 m-1">
+                  <FeaturedProject {...freelancingProjects[0]}/>
                 </div>
               </div>
-
-              {/* Window Content */}
-              <div className="h-[calc(100%-1.5rem)] p-4 bg-black border-[2px] border-t-zinc-700 border-l-zinc-700 border-r-zinc-600 border-b-zinc-600 m-1">
-                <FeaturedProject {...freelancingProjects[0]}/>
-              </div>
-            </div>
+          </div>
         </div>
-        <p className="font-jersey text-orange-400 text-3xl md:text-5xl p-5 md:p-10">SMALL PROJECTS</p>
-        <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hidden px-5 sm:px-10 no-scrollbar py-[1vh]">
-          {projects.map(project =>
-            <div className="snap-center shrink-0">
-              <Projects {...project} />
-            </div>
-          )}
+        <div className="space-y-5">
+          <p className="font-jersey text-orange-400 text-3xl md:text-5xl px-5">SMALL PROJECTS</p>
+          <div ref={projectsScrollRef} className={`flex px-5 gap-x-6 overflow-x-auto snap-x snap-mandatory scrollbar-hidden no-scrollbar ${dynamicGradient}`}>
+            {projects.map((project, index) =>
+              <div key={index} className="snap-center shrink-0">
+                <Project {...project} />
+              </div>
+            )}
+          </div>
         </div>
       </div>
 
       {/* Contact */}
-      <div id="contacts" className="flex flex-col h-screen w-full pt-[10%] px-5">
-        <div className="h-[93%] flex flex-col justify-end md:justify-baseline md:grid md:grid-cols-4">
+      <div id="contacts" className="flex flex-col justify-between h-screen w-full pt-[10%] px-5">
+        <div className="h-[93%] flex flex-col justify-center md:justify-baseline md:grid md:grid-cols-4">
           {/* Text Section */}
             <div className="flex items-center justify-start md:justify-center md:col-span-1">
             <div className="font-jersey text-white text-left select-none md:rotate-[-90deg] md:whitespace-nowrap">
@@ -206,9 +209,9 @@ function App() {
           </div>
         </div>
         {/* Footer */}
-        <div className="h-[5%] lg:h-[7%] p-1 lg:p-3">
-            <p className="text-white font-martian text-xs uppercase text-center">
-            © 2024 arrz. 
+        <div className="pb-6">
+            <p className="text-white font-martian text-[1.4vh] md:text-xs uppercase text-center">
+            © arrz. 
             Made with <span className="text-orange-400">{"<3"}</span> in Portugal by{' '}
             <a 
               href="https://juma-portfolio.vercel.app/" 
