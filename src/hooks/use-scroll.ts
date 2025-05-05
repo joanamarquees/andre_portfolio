@@ -1,6 +1,6 @@
 import { useEffect, useState, RefObject } from 'react';
 
-const useScroll = (scrollRef: RefObject<HTMLElement | null>) => {
+const useScroll_ = (scrollRef: RefObject<HTMLElement | null>) => {
   const [scrollState, setScrollState] = useState<"start" | "end" | "full" | "middle">("full");
 
   const handleScroll = () => {
@@ -41,4 +41,4 @@ const useScroll = (scrollRef: RefObject<HTMLElement | null>) => {
   return scrollState
 }
 
-export default useScroll;
+export default useScroll_;

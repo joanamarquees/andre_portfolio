@@ -14,7 +14,9 @@ import kaboom_clash from '@/assets/outline_svgs/boomberman.svg'
 
 // COMPANY LOGOS
 import alma from '@/assets/alma.svg'
+import athinketh from '@/assets/athinketh.svg'
 
+import video_preview from '@/assets/preview.mp4'
 
 import * as SiIcons from 'react-icons/si';
 
@@ -31,12 +33,13 @@ export const stackLabels: { [key in keyof typeof SiIcons]?: string } = {
   SiMongodb: "MongoDB",
   SiArduino: "Arduino",
   SiC: "C",
-  SiOpencv: "OpenCV",
-  SiTensorflow: "TensorFlow",
+  SiOpencv: "Computer Vision",
+  SiTensorflow: "Tensor Flow",
   SiSelenium: "Selenium",
   SiShopify: "Shopify",
   SiRemix: "Remix",
   SiCloudflare: "Cloudflare",
+  SiOllama: "AI",
 };
 // INDIVIDUAL PROJECTS - interface and data
 export interface ProjectType {
@@ -158,7 +161,7 @@ export const projects: ProjectType[] = [
 // FEATURED PROJECTS - interface and data
 export interface FeaturedProjectType {
   id: String,
-  image: any,
+  preview: any,
   name: String,
   description: String,
   role: String,
@@ -172,7 +175,7 @@ export interface FeaturedProjectType {
 export const freelancingProjects: FeaturedProjectType[] = [
   { 
     id: "shop-together",
-    image: "",
+    preview: video_preview,
     name: "Shop Together",
     description: "At Shop Together, I served as the lead Full-Stack Developer, building a custom Shopify-integrated browser extension from the ground up. The project required a deep understanding of the Shopify API ecosystem, including storefront access, checkout flows, and product data integration. I engineered the entire architecture, incorporating modern frameworks while learning and utilizing Cloudflare tools—such as Workers and Durable Objects—to handle edge processing and ensure a responsive, scalable experience. This project is a strong example of my ability to independently deliver complex, API-driven applications and rapidly adapt to unfamiliar technologies.",
     role: "Full-stack Developer",
@@ -184,26 +187,26 @@ export const freelancingProjects: FeaturedProjectType[] = [
   },
   { 
     id: "smartreg",
-    image: "",
-    name: "Shop Together",
-    description: "At Shop Together, I served as the lead Full-Stack Developer, building a custom Shopify-integrated browser extension from the ground up. The project required a deep understanding of the Shopify API ecosystem, including storefront access, checkout flows, and product data integration. I engineered the entire architecture, incorporating modern frameworks while learning and utilizing Cloudflare tools—such as Workers and Durable Objects—to handle edge processing and ensure a responsive, scalable experience. This project is a strong example of my ability to independently deliver complex, API-driven applications and rapidly adapt to unfamiliar technologies.",
-    role: "Full-stack Developer",
-    date: "February 2025 - May 2025",
-    stack: ["SiReact", "SiShopify", "SiRemix", "SiCloudflare"], // add multisynq icon, or arrows diverging
-    client: "ALMA",
-    clientLink: "https://alma.dev/",
-    clientLogo: alma,
+    preview: video_preview,
+    name: "SMARTREG",
+    description: "For SMARTREG, I am the responsible for the development of an AI-powered system that automates Regulatory Solutions for banks. Each step of the regulatory process—from input validation to capital computation—is handled by modular AI components, each mapped to the specific section of the regulation it enforces. The system can explain its reasoning, adapt to changes in regulation versions, and suggest updates to the code based on new rules. This project highlights my ability to deliver intelligent, regulation-aware solutions in highly structured domains.",
+    role: "Product full-stack Developer",
+    date: "February 2025 - now",
+    stack: ["SiPython", "SiOllama"],
+    client: "ATHINKETH",
+    clientLink: "",
+    clientLogo: athinketh,
   },
   { 
-    id: "twitch",
-    image: "",
-    name: "Shop Together",
-    description: "At Shop Together, I served as the lead Full-Stack Developer, building a custom Shopify-integrated browser extension from the ground up. The project required a deep understanding of the Shopify API ecosystem, including storefront access, checkout flows, and product data integration. I engineered the entire architecture, incorporating modern frameworks while learning and utilizing Cloudflare tools—such as Workers and Durable Objects—to handle edge processing and ensure a responsive, scalable experience. This project is a strong example of my ability to independently deliver complex, API-driven applications and rapidly adapt to unfamiliar technologies.",
+    id: "twitch extension",
+    preview: video_preview,
+    name: "Comment Picker",
     role: "Full-stack Developer",
-    date: "February 2025 - May 2025",
-    stack: ["SiReact", "SiShopify", "SiRemix", "SiCloudflare"], // add multisynq icon, or arrows diverging
-    client: "ALMA",
-    clientLink: "https://alma.dev/",
-    clientLogo: alma,
+    description: "I created this project on my own to.........",
+    date: "May 2025",
+    stack: ["SiReact"],
+    client: "TUDU",
+    clientLink: "",
+    clientLogo: "",
   },
 ]

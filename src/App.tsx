@@ -2,8 +2,7 @@ import { useRef } from 'react'
 import './index.css'
 import { motion } from 'framer-motion'
 import logo from '@/assets/arrz_logo.svg'
-
-import { useScroll } from '@/hooks'
+import { useScroll_ } from '@/hooks'
 
 import { SkillCloud, Project, FeaturedProject } from '@/components'
 import { companies } from '@/data/companies'
@@ -19,7 +18,7 @@ const createDynamicGradient = (gradientType: "start" | "end" | "middle" | "full"
 
 function App() {
   const projectsScrollRef = useRef(null)
-  const projectsScrollState = useScroll(projectsScrollRef)
+  const projectsScrollState = useScroll_(projectsScrollRef)
   const dynamicGradient = createDynamicGradient(projectsScrollState)
 
   return (
@@ -50,10 +49,10 @@ function App() {
           >
             FULL-STACK
           </motion.p>
-          
-          <p className="text-[6vw] whitespace-nowrap text-center">
-            HI THERE ! I'M ARRZ <span className="text-orange-400">( AKA ARROZ )</span>
-          </p>
+    
+            <p className="text-[6vw] whitespace-nowrap text-center">
+              HI THERE ! I'M ARRZ <span className="text-orange-400">( AKA ARROZ )</span>
+            </p>
           
           <motion.div 
             initial={{ x: 1000, opacity: 0 }}
