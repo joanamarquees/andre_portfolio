@@ -22,7 +22,7 @@ function App() {
   const dynamicGradient = createDynamicGradient(projectsScrollState)
 
   return (
-    <div className="bg-black h-full w-screen text-martian overflow-x-hidden">
+    <div className="bg-black h-full w-screen text-martian">
       
       {/* Header */}
       <div className="fixed w-full flex h-[10%] items-center justify-between text-orange-400 font-jersey text-center text-lg sm:text-3xl px-5 md:px-10 bg-black/70 z-50 backdrop-blur-[2px] select-none">
@@ -123,32 +123,33 @@ function App() {
         </div>
       </div>
           
-      {/* Projects */}
-      <div id="projects" className="min-h-screen h-full w-full pt-[10%] md:pt-[5%] space-y-5">
-        <div className="px-5 space-y-5">
-          <p className="font-jersey text-orange-400 text-3xl md:text-5xl">FEATURED PROJECTS</p>
-          {/* Featured projects */}
-          <div className="flex justify-center items-center w-full">
-              <div className="h-[80vh] bg-zinc-800 border-[3px] border-t-zinc-600 border-l-zinc-600 border-r-zinc-900 border-b-zinc-900 shadow-md font-martian">
-                {/* Window Header */}
-                <div className="h-6 bg-orange-400 flex items-center justify-between px-2">
-                  <span className="text-zinc-800 text-xs">{freelancingProjects[0].id}</span>
-                  <div className="flex gap-1">
-                    <div className="w-5 h-5 bg-zinc-800 border border-t-zinc-600 border-l-zinc-600 border-r-zinc-900 border-b-zinc-900 hover:border-t-zinc-900 hover:border-l-zinc-900 hover:border-r-zinc-600 hover:border-b-zinc-600 text-xs flex items-center justify-center text-white pb-2 select-none">_</div>
-                    <div className="w-5 h-5 bg-zinc-800 border border-t-zinc-600 border-l-zinc-600 border-r-zinc-900 border-b-zinc-900 hover:border-t-zinc-900 hover:border-l-zinc-900 hover:border-r-zinc-600 hover:border-b-zinc-600 text-xs flex items-center justify-center text-white pb-0.5 select-none">□</div>
-                    <div className="w-5 h-5 bg-zinc-800 border border-t-zinc-600 border-l-zinc-600 border-r-zinc-900 border-b-zinc-900 hover:border-t-zinc-900 hover:border-l-zinc-900 hover:border-r-zinc-600 hover:border-b-zinc-600 text-xs flex items-center justify-center text-white p-0.5 select-none">×</div>
-                  </div>
-                </div>
 
-                {/* Window Content */}
-                <div className="h-[calc(100%-1.5rem)] p-4 bg-black border-[2px] border-t-zinc-700 border-l-zinc-700 border-r-zinc-600 border-b-zinc-600 m-1">
-                  <FeaturedProject {...freelancingProjects[0]}/>
+      {/* Projects */}
+      <div id="projects" className="relative min-h-screen w-full pt-[10%] md:pt-[5%]">
+        {/* Featured Projects */}
+        <div className="flex flex-col justify-between h-full px-5 gap-y-5">
+          <p className="font-jersey text-orange-400 text-3xl md:text-5xl py-2 sticky top-[10%]">
+            FEATURED PROJECTS
+          </p>
+          <div className="flex flex-col gap-[100px] font-martian">
+            {/* Featured Projects Scroll Stacking */}
+            {freelancingProjects.map((project, index) => (   
+                <div 
+                  key={index}
+                  className="sticky top-[17%]"
+                  style={{ transform: `translateY(${index * 40}px)` }}
+                >
+                  <FeaturedProject {...project} />
                 </div>
-              </div>
+            ))}
           </div>
         </div>
+
+        {/* Small Projects section */}
         <div className="space-y-5">
-          <p className="font-jersey text-orange-400 text-3xl md:text-5xl px-5">SMALL PROJECTS</p>
+          <p className="font-jersey text-orange-400 text-3xl md:text-5xl px-5">
+            SMALL PROJECTS
+          </p>
           <div ref={projectsScrollRef} className={`flex px-5 gap-x-6 overflow-x-auto snap-x snap-mandatory scrollbar-hidden no-scrollbar ${dynamicGradient}`}>
             {projects.map((project, index) =>
               <div key={index} className="snap-center shrink-0">

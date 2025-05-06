@@ -2,6 +2,8 @@ import { motion } from 'framer-motion';
 import { FeaturedProjectType, stackLabels } from '@/data/projects';
 import * as SiIcons from 'react-icons/si';
 
+// add outer div  <div className="h-screen overflow-y-auto">
+
 const FeaturedProject = (project: FeaturedProjectType) => {
   return (
     <motion.div 
@@ -28,8 +30,8 @@ const FeaturedProject = (project: FeaturedProjectType) => {
       </div>
 
       {/* Window Content */}
-      <div className="h-[calc(100%-1.5rem)] p-4 bg-black border-[2px] border-t-zinc-700 border-l-zinc-700 border-r-zinc-600 border-b-zinc-600 m-1">
-        <div className="flex flex-col items-center justify-between w-full rounded-sm bg-zinc-900 h-full p-9 overflow-y-scroll gap-y-5">
+      <div id="teste" className="h-[calc(100%-1.5rem)] p-4 bg-black border-[2px] border-t-zinc-700 border-l-zinc-700 border-r-zinc-600 border-b-zinc-600 m-1">
+        <div className="flex flex-col items-center justify-between w-full rounded-sm bg-zinc-900 h-full p-9 gap-y-5">
           {/* Changed grid to be responsive */}
           <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-5">
             <div className="flex col-span-1 items-center">
@@ -110,4 +112,4 @@ const FeaturedProject = (project: FeaturedProjectType) => {
   )
 };
 
-export default FeaturedProject;
+export default FeaturedProject
