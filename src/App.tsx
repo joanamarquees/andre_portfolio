@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import logo from '@/assets/arrz_logo.svg'
 import { useScroll_ } from '@/hooks'
 
-import { SkillCloud, Project, FeaturedProject } from '@/components'
+import { StackGrid, Project, FeaturedProject } from '@/components'
 import { companies } from '@/data/companies'
 import { projects, freelancingProjects } from '@/data/projects'
 import { scrollToSection } from './utils'
@@ -68,58 +68,58 @@ function App() {
       </div>
 
       {/* About section - skills/tools & companies/works */}
-      <div id="about" className="grid grid-cols-1 md:grid-cols-2 min-h-screen w-full pt-[10%] px-5 md:px-10">
-        {/* ABOUT text */}
-        <div className="flex flex-col items-center md:items-start text-center md:text-left justify-center font-martian text-sm md:text-lg lg:text-xl text-white gap-4 px-6 leading-relaxed">
-          <div className="flex flex-col gap-3">
-            <p>
-              I'm André
-              <span className="text-orange-400 font-semibold"> {"{ a backend-loving, full-stack-capable }"} </span>
-              who'd rather scale servers than drink coffee.
-            </p>
-            <p>
-              I enjoy turning complex logic into clean, efficient code — whether it's APIs,
-              containers, or DevOps pipelines. 
-            </p>
-            <p>
-              <span className="text-orange-300 font-bold uppercase">Off the clock? </span>
-              I'm usually gaming, cruising in my car 🚗, hanging out with my two bunnies 🐇🐇,
-              or pretending to be productive while actually optimizing my PC setup.
-            </p>
-            <p className="text-orange-300 font-medium">
-              Let's build cool stuff (and maybe grill something too)!
-            </p>
-          </div>
+      <div id="about" className="flex min-h-screen w-full pt-[10%] px-5 md:px-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 h-full w-full gap-5 lg:gap-10 p-5">
+          {/* ABOUT text */}
+          <div className="h-full flex flex-col items-center md:items-center text-center md:text-left justify-between font-martian text-sm md:text-lg lg:text-xl text-white gap-y-5 leading-relaxe">
+            <div className="flex flex-col gap-3">
+              <p>
+                I'm André
+                <span className="text-orange-400 font-semibold"> {"{ a backend-loving, full-stack-capable }"} </span>
+                who'd rather scale servers than drink coffee.
+              </p>
+              <p>
+                I enjoy turning complex logic into clean, efficient code — whether it's APIs,
+                containers, or DevOps pipelines. 
+              </p>
+              <p>
+                <span className="text-orange-300 font-bold uppercase">Off the clock? </span>
+                I'm usually gaming, cruising in my car 🚗, hanging out with my two bunnies 🐇🐇,
+                or pretending to be productive while actually optimizing my PC setup.
+              </p>
+              <p className="text-orange-300 font-medium">
+                Let's build cool stuff (and maybe grill something too)!
+              </p>
+            </div>
 
-          {/* Companies */}
-          <div className="w-full pt-5 text-white 
-                          [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent_100%)]">
-            <div className="flex whitespace-nowrap gap-4 md:gap-8 scroll-animation">
-              {[...companies, ...companies].map((company, index) => (
-                <div 
-                  key={`${company.name}-${index}`}
-                  className="flex-shrink-0 h-12 md:h-15 w-fit p-2 bg-zinc-900 rounded-md items-center gap-1 md:gap-2 flex"
-                >
-                  <img 
-                    src={company.icon} 
-                    alt={company.name} 
-                    className="h-[5vh]"
-                  />
-                  {company.showName && (
-                    <p className="text-zinc-400 text-xs md:text-base whitespace-nowrap">
-                      {company.name}
-                    </p>
-                  )}
-                </div>
-              ))}
+            {/* Companies */}
+            <div className="w-full text-white [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent_100%)]">
+              <div className="flex whitespace-nowrap gap-4 md:gap-8 scroll-animation">
+                {[...companies, ...companies].map((company, index) => (
+                  <div 
+                    key={`${company.name}-${index}`}
+                    className="flex-shrink-0 h-12 md:h-16 w-fit p-2 bg-zinc-900 rounded-md items-center gap-1 md:gap-2 flex"
+                  >
+                    <img 
+                      src={company.icon} 
+                      alt={company.name} 
+                      className="h-[5vh]"
+                    />
+                    {company.showName && (
+                      <p className="text-zinc-400 text-xs md:text-base whitespace-nowrap">
+                        {company.name}
+                      </p>
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-
-        </div>
-        
-        {/* Skills & tools */}
-        <div className="h-[50vh] md:h-full md:p-10">
-          <SkillCloud />
+          
+          {/* Skills & tools */}
+          <div className="flex items-start justify-center">
+            <StackGrid />
+          </div>
         </div>
       </div>
           
@@ -127,7 +127,7 @@ function App() {
       {/* Projects */}
       <div id="projects" className="relative min-h-screen w-full pt-[10%] md:pt-[5%]">
         {/* Featured Projects */}
-        <div className="flex flex-col justify-between h-full px-5 gap-y-5">
+        <div className="flex flex-col justify-between h-full px-5 gap-y-10">
           <p className="font-jersey text-orange-400 text-3xl md:text-5xl py-2 sticky top-[10%]">
             FEATURED PROJECTS
           </p>
