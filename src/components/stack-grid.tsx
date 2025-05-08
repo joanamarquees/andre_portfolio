@@ -42,8 +42,8 @@ const tools = [
 
 const StackGrid = () => {
   return (
-    <div className="h-fit w-full text-white space-y-5">
-      <h2 className="font-jersey text-orange-400 text-[12vw] text-center tracking-[3vw] leading-none">STACK</h2>
+    <div className="flex flex-col items-center h-full w-full text-white space-y-5">
+      <h2 className="font-jersey text-orange-400 text-[12vw] text-center tracking-[3vw] leading-30">STACK</h2>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
         {tools.map((tool) => (
           <div
