@@ -67,11 +67,11 @@ function App() {
         </div>
       </div>
 
-      {/* About section - skills/tools & companies/works */}
+      {/* About section - skills/tools & companies/works */} 
       <div id="about" className="flex min-h-screen w-full pt-[10%] px-5 md:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 h-full w-full gap-5 lg:gap-10 p-5">
-          {/* ABOUT text */}
           <div className="h-full flex flex-col items-center md:items-center text-center md:text-left justify-between font-martian text-sm md:text-lg lg:text-xl text-white gap-y-5 leading-relaxe">
+            {/* ABOUT text */}
             <div className="flex flex-col gap-3">
               <p>
                 I'm André
@@ -127,20 +127,22 @@ function App() {
       {/* Projects */}
       <div id="projects" className="relative min-h-screen w-full pt-[10%] md:pt-[5%]">
         {/* Featured Projects */}
-        <div className="flex flex-col justify-between h-full px-5 gap-y-10">
-          <p className="font-jersey text-orange-400 text-3xl md:text-5xl py-2 sticky top-[10%]">
+        <div className="flex flex-col justify-between h-fit px-5 gap-y-5">
+          <p className="font-jersey text-orange-400 text-3xl md:text-5xl py-2 sticky top-[8%]">
             FEATURED PROJECTS
           </p>
-          <div className="flex flex-col gap-[100px] font-martian">
+          <div className="flex flex-col gap-[100px] font-martian mb-24">
             {/* Featured Projects Scroll Stacking */}
-            {freelancingProjects.map((project, index) => (   
-                <div 
-                  key={index}
-                  className="sticky top-[17%]"
-                  style={{ transform: `translateY(${index * 40}px)` }}
-                >
-                  <FeaturedProject {...project} />
-                </div>
+            {freelancingProjects.map((project, index) => (
+              <div 
+                key={index}
+                className="sticky top-[15%]"
+                style={{
+                  transform: `translateY(${index * 40}px)`
+                }}
+              >
+                <FeaturedProject {...project} />
+              </div>
             ))}
           </div>
         </div>
