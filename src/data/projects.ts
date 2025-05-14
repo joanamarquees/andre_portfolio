@@ -202,7 +202,7 @@ export const freelancingProjects: FeaturedProjectType[] = [
     preview: video_preview,
     name: "Comment Picker",
     role: "Full-stack Developer",
-    description: "I created this project on my own to.........",
+    description: "I created this project on my own to......... preciso de um text maior de exemplo bla ojdidendkj noiononndknkdnkdnkdnkdnkdnkdnkdnkdnkdnkdn   kdnkdnkdnkdnkdnkdnkdnkdnkdnkdnkdnkdnkdnkdnkd nkdndkdnkdnkdnkdnkdnkdnkdnkdnkdnkdnkdnkdn opjnknkdnkdnkdnkdnkdnkdnkdnkdnkdnkdnkdnkdnkd nkdndkdnkdnkdnkdnkdnkdnkdnkdnkdnkdnkdnkdnkd nkdndkdnkd nkdnd",
     date: "May 2025",
     stack: ["SiReact"],
     client: "TUDU",

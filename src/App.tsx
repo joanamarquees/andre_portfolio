@@ -9,6 +9,12 @@ import { companies } from '@/data/companies'
 import { projects, freelancingProjects } from '@/data/projects'
 import { scrollToSection } from './utils'
 
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
+
+gsap.registerPlugin(useGSAP, ScrollTrigger);
+
 const createDynamicGradient = (gradientType: "start" | "end" | "middle" | "full") => {
   if (gradientType == "start") return "[mask-image:linear-gradient(to_right,transparent,black_0%,black_90%,transparent_100%)]"
   if (gradientType == "middle") return "[mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent_100%)]"
@@ -21,8 +27,74 @@ function App() {
   const projectsScrollState = useScroll_(projectsScrollRef)
   const dynamicGradient = createDynamicGradient(projectsScrollState)
 
+  const containerRef = useRef<HTMLDivElement>(null)
+  const titleRef = useRef<HTMLParagraphElement>(null);
+
+  useGSAP(() => {
+      const cards = gsap.utils.toArray<HTMLElement>('.card');
+      const lastCardIndex = cards.length - 1;
+      const lastCard = cards[lastCardIndex];
+      
+      // Pin the title
+      if (titleRef.current && lastCard) {
+        
+        ScrollTrigger.create({
+          trigger: titleRef.current,
+          start: "top 10%",
+          endTrigger: lastCard,
+          end: `top ${4 * 37}px`, 
+          pin: true,
+          pinSpacing: false,
+        });
+      }
+
+      let offset = 0;
+      cards.forEach((card, index) => {
+        const innerScroll = card.querySelector('.scroll-inner') as HTMLElement;
+        if (!innerScroll) return;
+      
+        // Inner scroll height
+        const maxScroll = 2000;
+        const scrollLength = 5000;
+
+        console.log("maxScroll", maxScroll);
+        console.log("scrollLength", scrollLength);
+
+        if (maxScroll <= 0) return; // skip if there's nothing to scroll
+
+        // Disable native scrolling
+        innerScroll.style.overflow = "hidden";
+
+        // Pin the card while inner scroll happens
+        ScrollTrigger.create({
+          trigger: card,
+          start: `top ${(index + 4) * 37}px`, //Adjust based on when you want the animation to start
+          pin: true,
+          pinSpacing: false,
+          endTrigger: lastCard,
+          end: `top ${4 * 37}px`,         
+          scrub: true,
+          markers: true,
+          onUpdate: (self) => {
+            const progress = self.progress;
+            const scrollTop = maxScroll * progress;
+            innerScroll.scrollTop = scrollTop;
+          },
+          onEnter: () => {
+            innerScroll.scrollTop = 0;
+          },
+          onLeave: () => {
+            innerScroll.scrollTop = maxScroll;
+          },
+          pinnedContainer: containerRef.current!,
+        });
+
+        offset += scrollLength;
+      });
+    });
+
   return (
-    <div className="bg-black h-full w-screen text-martian">
+    <div className="bg-black h-full w-screen text-martian overflow-x-clip">
       
       {/* Header */}
       <div className="fixed w-full flex h-[10%] items-center justify-between text-orange-400 font-jersey text-center text-lg sm:text-3xl px-5 md:px-10 bg-black/70 z-50 backdrop-blur-[2px] select-none">
@@ -125,22 +197,15 @@ function App() {
           
 
       {/* Projects */}
-      <div id="projects" className="relative min-h-screen w-full pt-[10%] md:pt-[5%]">
+      <div id="projects" className="relative min-h-screen w-full pt-[10%] md:pt-[5%] space-y-5">
         {/* Featured Projects */}
-        <div className="flex flex-col justify-between h-fit px-5 gap-y-5">
-          <p className="font-jersey text-orange-400 text-3xl md:text-5xl py-2 sticky top-[8%]">
+        <div className="flex flex-col justify-between h-fit px-5 space-y-5">
+          <p ref={titleRef} className="font-jersey text-orange-400 text-3xl md:text-5xl py-2">
             FEATURED PROJECTS
           </p>
-          <div className="flex flex-col gap-[100px] font-martian mb-24">
-            {/* Featured Projects Scroll Stacking */}
+          <div ref={containerRef} className="flex flex-col gap-[150vh] font-martian mb-24">
             {freelancingProjects.map((project, index) => (
-              <div 
-                key={index}
-                className="sticky top-[15%]"
-                style={{
-                  transform: `translateY(${index * 40}px)`
-                }}
-              >
+              <div key={index} className="card">
                 <FeaturedProject {...project} />
               </div>
             ))}

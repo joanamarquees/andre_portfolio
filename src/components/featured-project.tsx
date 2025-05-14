@@ -7,7 +7,7 @@ import * as SiIcons from 'react-icons/si';
 const FeaturedProject = (project: FeaturedProjectType) => {
   return (
       <motion.div 
-        className="h-[80vh] bg-zinc-800 border-[3px] border-t-zinc-600 border-l-zinc-600 border-r-zinc-900 border-b-zinc-900 shadow-md font-martian"
+        className="w-full h-[80vh] bg-zinc-800 border-[3px] border-t-zinc-600 border-l-zinc-600 border-r-zinc-900 border-b-zinc-900 shadow-md font-martian"
         initial={{ y: 100, opacity: 0 }}
         whileInView={{ 
           y: 0,
@@ -31,7 +31,7 @@ const FeaturedProject = (project: FeaturedProjectType) => {
 
         {/* Window Content */}
         <div id="teste" className="h-[calc(100%-1.5rem)] p-4 bg-black border-[2px] border-t-zinc-700 border-l-zinc-700 border-r-zinc-600 border-b-zinc-600 m-1">
-          <div className="flex flex-col items-center justify-between w-full rounded-sm bg-zinc-900 h-full p-9 gap-y-5 overflow-y-scroll">
+          <div className="flex flex-col items-center justify-between w-full rounded-sm bg-zinc-900 h-full p-9 gap-y-5 scroll-inner pb-20">
             {/* Changed grid to be responsive */}
             <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-5">
               <div className="flex col-span-1 items-center">
