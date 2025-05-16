@@ -42,7 +42,7 @@ function App() {
           trigger: titleRef.current,
           start: "top 10%",
           endTrigger: lastCard,
-          end: `top ${4 * 37}px`, 
+          end: "bottom+=80% bottom", 
           pin: true,
           pinSpacing: false,
         });
@@ -70,9 +70,9 @@ function App() {
           trigger: card,
           start: `top ${(index + 4) * 37}px`, //Adjust based on when you want the animation to start
           pin: true,
-          pinSpacing: false,
+          pinSpacing: index === lastCardIndex ? true : false, // only last card
           endTrigger: lastCard,
-          end: `top ${4 * 37}px`,         
+          end: "bottom+=80% bottom",         
           scrub: true,
           markers: true,
           onUpdate: (self) => {
@@ -203,7 +203,7 @@ function App() {
           <p ref={titleRef} className="font-jersey text-orange-400 text-3xl md:text-5xl py-2">
             FEATURED PROJECTS
           </p>
-          <div ref={containerRef} className="flex flex-col gap-[150vh] font-martian mb-24">
+          <div ref={containerRef} className="flex flex-col gap-[150vh] font-martian">
             {freelancingProjects.map((project, index) => (
               <div key={index} className="card">
                 <FeaturedProject {...project} />
