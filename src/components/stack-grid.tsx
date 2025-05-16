@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { 
   SiNodedotjs,
   SiReact,
@@ -41,11 +42,21 @@ const tools = [
 
 
 const StackGrid = () => {
+  const [expanded, setExpanded] = useState(false);
+
+  // Toggle expanded state on mobile
+  const visibleTools = expanded || window.innerWidth >= 768
+    ? tools
+    : tools.slice(0, 4); // show first 4 on mobile
+
   return (
     <div className="flex flex-col items-center h-full w-full text-white space-y-5">
-      <h2 className="font-jersey text-orange-400 text-[12vw] text-center tracking-[3vw] leading-30">STACK</h2>
+      <h2 className="font-jersey text-orange-400 text-[12vw] text-center tracking-[3vw] leading-30">
+        STACK
+      </h2>
+
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-        {tools.map((tool) => (
+        {visibleTools.map((tool) => (
           <div
             key={tool.name}
             className="flex items-center justify-between bg-zinc-900 p-4 rounded-xl hover:bg-zinc-800 transition"
@@ -60,8 +71,16 @@ const StackGrid = () => {
           </div>
         ))}
       </div>
+
+      {/* Toggle Button (mobile only) */}
+      <button
+        onClick={() => setExpanded(!expanded)}
+        className="text-orange-400 hover:text-orange-200 block md:hidden"
+      >
+        {expanded ? 'SEE LESS' : 'SEE MORE'}
+      </button>
     </div>
   );
-}
+}; 
 
 export default StackGrid
