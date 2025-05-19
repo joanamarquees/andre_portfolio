@@ -42,7 +42,7 @@ const FeaturedProject = (project: FeaturedProjectType) => {
                 <p className="text-orange-400 font-jersey text-2xl md:text-4xl uppercase">
                   {project.name}
                 </p>
-                <div className="text-white text-[10px] md:text-sm font-martian leading-7">
+                <div className="text-white text-[10px] md:text-sm font-martian leading-5 md:leading-7">
                   {/* Mobile: Toggle between truncated/full */}
                   <p className="block md:hidden">
                     {expanded 
