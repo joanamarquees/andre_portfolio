@@ -76,6 +76,7 @@
 
 .scroll-inner {
   overflow: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 @theme {  

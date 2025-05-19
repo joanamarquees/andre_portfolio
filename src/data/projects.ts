@@ -161,6 +161,7 @@ export const projects: ProjectType[] = [
 // FEATURED PROJECTS - interface and data
 export interface FeaturedProjectType {
   id: String,
+  index: number,
   preview: any,
   name: String,
   description: String,
@@ -175,6 +176,7 @@ export interface FeaturedProjectType {
 export const freelancingProjects: FeaturedProjectType[] = [
   { 
     id: "shop-together",
+    index: 0,
     preview: video_preview,
     name: "Shop Together",
     description: "At Shop Together, I served as the lead Full-Stack Developer, building a custom Shopify-integrated browser extension from the ground up. The project required a deep understanding of the Shopify API ecosystem, including storefront access, checkout flows, and product data integration. I engineered the entire architecture, incorporating modern frameworks while learning and utilizing Cloudflare tools—such as Workers and Durable Objects—to handle edge processing and ensure a responsive, scalable experience. This project is a strong example of my ability to independently deliver complex, API-driven applications and rapidly adapt to unfamiliar technologies.",
@@ -187,6 +189,7 @@ export const freelancingProjects: FeaturedProjectType[] = [
   },
   { 
     id: "smartreg",
+    index: 1,
     preview: video_preview,
     name: "SMARTREG",
     description: "For SMARTREG, I am the responsible for the development of an AI-powered system that automates Regulatory Solutions for banks. Each step of the regulatory process—from input validation to capital computation—is handled by modular AI components, each mapped to the specific section of the regulation it enforces. The system can explain its reasoning, adapt to changes in regulation versions, and suggest updates to the code based on new rules. This project highlights my ability to deliver intelligent, regulation-aware solutions in highly structured domains.",
@@ -199,6 +202,7 @@ export const freelancingProjects: FeaturedProjectType[] = [
   },
   { 
     id: "twitch extension",
+    index: 2,
     preview: video_preview,
     name: "Comment Picker",
     role: "Full-stack Developer",

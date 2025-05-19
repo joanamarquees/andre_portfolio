@@ -54,13 +54,11 @@ function App() {
         if (!innerScroll) return;
       
         // Inner scroll height
-        const maxScroll = 2000;
-        const scrollLength = 5000;
+        const maxScroll = innerScroll.scrollHeight;
+        const scrollLength = maxScroll * 3;
 
-        console.log("maxScroll", maxScroll);
-        console.log("scrollLength", scrollLength);
-
-        if (maxScroll <= 0) return; // skip if there's nothing to scroll
+        // skip if there's nothing to scroll
+        if (maxScroll <= 0) return;
 
         // Disable native scrolling
         innerScroll.style.overflow = "hidden";
@@ -74,11 +72,9 @@ function App() {
           endTrigger: lastCard,
           end: "bottom+=80% bottom",         
           scrub: true,
-          markers: true,
           onUpdate: (self) => {
-            const progress = self.progress;
-            const scrollTop = maxScroll * progress;
-            innerScroll.scrollTop = scrollTop;
+            const scrollTop = maxScroll * self.progress;
+            gsap.to(innerScroll, { scrollTop, duration: 0.8, ease: 'power1.out' });
           },
           onEnter: () => {
             innerScroll.scrollTop = 0;

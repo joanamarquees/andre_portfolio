@@ -2,10 +2,9 @@ import { FeaturedProjectType, stackLabels } from '@/data/projects';
 import * as SiIcons from 'react-icons/si';
 import { useState } from 'react';
 
-// add outer div  <div className="h-screen overflow-y-auto">
-
 const FeaturedProject = (project: FeaturedProjectType) => {
   const [expanded, setExpanded] = useState(false);
+  const bottom = project.index * 35;
 
   return (
     <div className="w-full h-[80vh] bg-zinc-800 border-[3px] border-t-zinc-600 border-l-zinc-600 border-r-zinc-900 border-b-zinc-900 shadow-md font-martian">
@@ -22,7 +21,10 @@ const FeaturedProject = (project: FeaturedProjectType) => {
 
       {/* Window Content */}
       <div id="teste" className="h-[calc(100%-1.5rem)] p-2 md:p-4 bg-black border-[2px] border-t-zinc-700 border-l-zinc-700 border-r-zinc-600 border-b-zinc-600 m-1">
-        <div className="flex flex-col items-center justify-between w-full rounded-sm bg-zinc-900 h-full p-2 md:p-9 gap-y-5 scroll-inner pb-20">
+        <div
+          className="flex flex-col items-center justify-between w-full rounded-sm bg-zinc-900 h-full p-2 md:p-9 gap-y-5 scroll-inner"
+          style={{ paddingBottom: `${bottom}px` }}
+        >
           {/* Changed grid to be responsive */}
           <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-2 md:gap-y-5">
             <div className="flex col-span-1 items-center">
