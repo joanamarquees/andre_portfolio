@@ -87,6 +87,29 @@ function App() {
 
         offset += scrollLength;
       });
+
+      // Landing page animation
+      gsap.fromTo(
+        ".landing-page",
+        {
+          scale: 1,
+          opacity: 1,
+        },
+        {
+          scale: 0.4,
+          opacity: 0,
+          ease: "power1.out",
+          scrollTrigger: {
+            trigger: "#home",
+            start: "top top",
+            end: "+=100%", // control how long the animation lasts
+            scrub: true,
+            pin: true,
+            pinSpacing: false, // so the next section comes over it - avoid scroll jump
+          },
+        }
+      );
+
     });
 
   return (
@@ -107,7 +130,7 @@ function App() {
       </div>
 
       {/* Landing page */}
-      <div id="home" className="flex min-h-screen max-w-full pt-[5%] text-white items-center justify-center">
+      <div id="home" className="flex min-h-screen max-w-full pt-[5%] text-white items-center justify-center landing-page">
         <div className="h-full w-full flex flex-col justify-between items-center font-jersey leading-none select-none py-48 md:py-36 lg:py-14">
           <motion.p 
             initial={{ x: -1000, opacity: 0 }}
