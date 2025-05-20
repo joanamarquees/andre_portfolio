@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { 
   SiNodedotjs,
   SiReact,
@@ -42,43 +41,28 @@ const tools = [
 
 
 const StackGrid = () => {
-  const [expanded, setExpanded] = useState(false);
-
-  // Toggle expanded state on mobile
-  const visibleTools = expanded || window.innerWidth >= 768
-    ? tools
-    : tools.slice(0, 4); // show first 4 on mobile
-
   return (
     <div className="flex flex-col items-center h-full w-full text-white space-y-5">
-      <h2 className="font-jersey text-orange-400 text-[12vw] text-center tracking-[3vw] leading-30">
+      <h2 className="font-jersey text-orange-400 text-[12vw] text-center tracking-[3vw] space-y-2 md:leading-30">
         STACK
       </h2>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-        {visibleTools.map((tool) => (
+      <div className="grid grid-cols-3 gap-4">
+        {tools.map((tool) => (
           <div
             key={tool.name}
-            className="flex items-center justify-between bg-zinc-900 p-4 rounded-xl hover:bg-zinc-800 transition"
+            className="flex items-center justify-center md:justify-between bg-zinc-900 p-2 md:p-4 rounded-xl hover:bg-zinc-800 transition"
           >
-            <div className="flex items-center gap-4 overflow-hidden text-ellipsis">
+            <div className="flex flex-col md:flex-row items-center justify-center md:justify-start gap-4 overflow-hidden text-ellipsis">
               <div className="text-white">{tool.icon}</div>
-              <div>
-                <div className="font-martian text-xs">{tool.name}</div>
-                <div className="text-gray-500 font-martian text-[10px]">{tool.type}</div>
+              <div className="space-y-1">
+                <div className="font-martian text-[9px] md:text-xs text-center md:text-left">{tool.name}</div>
+                <div className="hidden md:flex text-gray-500 font-martian text-[10px]">{tool.type}</div>
               </div>
             </div>
           </div>
         ))}
       </div>
-
-      {/* Toggle Button (mobile only) */}
-      <button
-        onClick={() => setExpanded(!expanded)}
-        className="text-orange-400 hover:text-orange-200 block md:hidden"
-      >
-        {expanded ? 'SEE LESS' : 'SEE MORE'}
-      </button>
     </div>
   );
 }; 

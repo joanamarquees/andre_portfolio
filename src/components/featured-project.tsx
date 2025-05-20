@@ -1,13 +1,11 @@
 import { FeaturedProjectType, stackLabels } from '@/data/projects';
 import * as SiIcons from 'react-icons/si';
-import { useState } from 'react';
 
 const FeaturedProject = (project: FeaturedProjectType) => {
-  const [expanded, setExpanded] = useState(false);
   const bottom = project.index * 35;
 
   return (
-    <div className="w-full h-[80vh] bg-zinc-800 border-[3px] border-t-zinc-600 border-l-zinc-600 border-r-zinc-900 border-b-zinc-900 shadow-md font-martian">
+    <div className="w-full h-fit md:h-[80vh] bg-zinc-800 border-[3px] border-t-zinc-600 border-l-zinc-600 border-r-zinc-900 border-b-zinc-900 shadow-md font-martian">
 
       {/* Window Header */}
       <div className="h-6 bg-orange-400 flex items-center justify-between px-2">
@@ -20,9 +18,9 @@ const FeaturedProject = (project: FeaturedProjectType) => {
       </div>
 
       {/* Window Content */}
-      <div id="teste" className="h-[calc(100%-1.5rem)] p-2 md:p-4 bg-black border-[2px] border-t-zinc-700 border-l-zinc-700 border-r-zinc-600 border-b-zinc-600 m-1">
+      <div id="teste" className="h-fit md:h-[calc(100%-1.5rem)] p-2 md:p-4 bg-black border-[2px] border-t-zinc-700 border-l-zinc-700 border-r-zinc-600 border-b-zinc-600 m-1">
         <div
-          className="flex flex-col items-center justify-between w-full rounded-sm bg-zinc-900 h-full p-2 md:p-9 gap-y-5 scroll-inner"
+          className="flex flex-col items-center justify-start md:justify-between w-full rounded-sm bg-zinc-900 h-full p-2 md:p-9 gap-y-5 scroll-inner"
           style={{ paddingBottom: `${bottom}px` }}
         >
           {/* Changed grid to be responsive */}
@@ -45,24 +43,13 @@ const FeaturedProject = (project: FeaturedProjectType) => {
                 <div className="text-white text-[10px] md:text-sm font-martian leading-5 md:leading-7">
                   {/* Mobile: Toggle between truncated/full */}
                   <p className="block md:hidden">
-                    {expanded 
-                      ? project.description 
-                      : `${project.description.slice(0, 140)}...`
-                    }
+                    {project.descriptionMobile}
                   </p>
 
                   {/* Desktop: Always full */}
                   <p className="hidden md:block">
                     {project.description}
                   </p>
-
-                  {/* Toggle Button for Mobile */}
-                  <button 
-                    onClick={() => setExpanded(!expanded)} 
-                    className="mt-2 text-orange-400 hover:text-orange-300 block md:hidden"
-                  >
-                    {expanded ? 'READ LESS' : 'READ MORE'}
-                  </button>
                 </div>
               </div>
             </div>

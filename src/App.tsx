@@ -54,8 +54,8 @@ function App() {
         if (!innerScroll) return;
       
         // Inner scroll height
-        const maxScroll = innerScroll.scrollHeight;
-        const scrollLength = maxScroll * 3;
+        const maxScroll = 5000;
+        const scrollLength = 2000;
 
         // skip if there's nothing to scroll
         if (maxScroll <= 0) return;
@@ -116,7 +116,7 @@ function App() {
     <div className="bg-black h-full w-screen text-martian overflow-x-clip">
       
       {/* Header */}
-      <div className="fixed w-full flex h-[10%] items-center justify-between text-orange-400 font-jersey text-center text-lg sm:text-3xl px-5 md:px-10 bg-black/70 z-50 backdrop-blur-[2px] select-none">
+      <div className="fixed w-full flex h-fit items-center justify-between text-orange-400 font-jersey text-center text-lg sm:text-3xl py-2 px-5 md:px-10 bg-black/70 z-50 backdrop-blur-[2px] select-none">
         <a href="#home">
           <img src={logo} alt="Logo" className="sm:h-20 md:h-30 w-14 sm:w-20 md:w-30" />
         </a>
@@ -131,25 +131,23 @@ function App() {
 
       {/* Landing page */}
       <div id="home" className="flex min-h-screen max-w-full pt-[5%] text-white items-center justify-center landing-page">
-        <div className="h-full w-full flex flex-col justify-between items-center font-jersey leading-none select-none py-48 md:py-36 lg:py-14">
+        <div className="h-full w-full flex flex-col justify-center md:justify-between items-center font-jersey leading-none select-none py-48 md:py-36 lg:py-14">
           <motion.p 
             initial={{ x: -1000, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 1, ease: "easeOut" }}
-            className="w-full text-center sm:text-left px-5 text-[20vw] whitespace-nowrap"
+            className="order-2 md:order-1 w-full text-center sm:text-left px-5 text-[20vw] whitespace-nowrap"
           >
             FULL-STACK
           </motion.p>
-    
-            <p className="text-[6vw] whitespace-nowrap text-center">
-              HI THERE ! I'M ARRZ <span className="text-orange-400">( AKA ARROZ )</span>
-            </p>
-          
+          <p className="order-1 md:order-2 text-[6vw] whitespace-nowrap text-center">
+            HI THERE ! I'M ARRZ <span className="text-orange-400">( AKA ARROZ )</span>
+          </p>
           <motion.div 
             initial={{ x: 1000, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 1, ease: "easeOut" }}
-            className="w-full flex justify-center sm:justify-end"
+            className="order-3 w-full flex justify-center sm:justify-end"
           >
             <p className="bg-orange-400 rounded-md md:rounded-l-md text-center sm:text-right px-5 text-[20vw] whitespace-nowrap">
               DEVELOPER
@@ -161,7 +159,7 @@ function App() {
       {/* About section - skills/tools & companies/works */} 
       <div id="about" className="flex min-h-screen w-full pt-[10%] px-5 md:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 h-full w-full gap-5 lg:gap-10 p-5">
-          <div className="h-full flex flex-col items-center md:items-center text-center md:text-left justify-between font-martian text-sm md:text-lg lg:text-xl text-white gap-y-5 leading-relaxe">
+          <div className="h-screen md:h-full flex flex-col items-center text-center md:text-left justify-center md:justify-between font-martian text-sm md:text-lg lg:text-xl text-white gap-y-5 leading-relaxe">
             {/* ABOUT text */}
             <div className="flex flex-col gap-3">
               <p>
@@ -208,7 +206,7 @@ function App() {
           </div>
           
           {/* Skills & tools */}
-          <div className="flex items-start justify-center">
+          <div className="h-screen md:h-full flex items-start justify-center">
             <StackGrid />
           </div>
         </div>
@@ -217,14 +215,28 @@ function App() {
 
       {/* Projects */}
       <div id="projects" className="relative min-h-screen w-full pt-[10%] md:pt-[5%] space-y-5">
-        {/* Featured Projects */}
-        <div className="flex flex-col justify-between h-fit px-5 space-y-5">
+        {/* Desktop layout */}
+        <div className="hidden md:flex flex-col justify-between h-fit px-5 space-y-5">
           <p ref={titleRef} className="font-jersey text-orange-400 text-3xl md:text-5xl py-2">
             FEATURED PROJECTS
           </p>
           <div ref={containerRef} className="flex flex-col gap-[150vh] font-martian">
             {freelancingProjects.map((project, index) => (
               <div key={index} className="card">
+                <FeaturedProject {...project} />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Mobile layout for featured projects */}
+        <div className="flex flex-col md:hidden px-5 space-y-3 py-5">
+          <p className="font-jersey text-orange-400 text-3xl py-2 text-left">
+            FEATURED PROJECTS
+          </p>
+          <div className="flex flex-col gap-10 font-martian">
+            {freelancingProjects.map((project, index) => (
+              <div key={index}>
                 <FeaturedProject {...project} />
               </div>
             ))}
