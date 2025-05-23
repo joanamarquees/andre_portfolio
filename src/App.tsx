@@ -116,9 +116,9 @@ function App() {
     <div className="bg-black h-full w-screen text-martian overflow-x-clip">
       
       {/* Header */}
-      <div className="fixed w-full flex h-fit items-center justify-between text-orange-400 font-jersey text-center text-lg sm:text-3xl py-2 px-5 md:px-10 bg-black/70 z-50 backdrop-blur-[2px] select-none">
+      <div className="fixed w-full flex max-h-[8%] items-center justify-between text-orange-400 font-jersey text-center text-lg sm:text-3xl py-2 px-5 md:px-10 bg-black/70 z-50 backdrop-blur-[2px] select-none">
         <a href="#home">
-          <img src={logo} alt="Logo" className="sm:h-20 md:h-30 w-14 sm:w-20 md:w-30" />
+          <img src={logo} alt="Logo" className="sm:h-20 md:h-24 w-14 sm:w-20 md:w-24" />
         </a>
 
         {/* Desktop Menu - hidden on small screens, visible on md and up */}
