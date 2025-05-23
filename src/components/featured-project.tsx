@@ -2,10 +2,9 @@ import { FeaturedProjectType, stackLabels } from '@/data/projects';
 import * as SiIcons from 'react-icons/si';
 
 const FeaturedProject = (project: FeaturedProjectType) => {
-  const bottom = project.index * 35;
 
   return (
-    <div className="w-full h-fit md:h-[80vh] bg-zinc-800 border-[3px] border-t-zinc-600 border-l-zinc-600 border-r-zinc-900 border-b-zinc-900 shadow-md font-martian">
+    <div className="w-full h-[65vh] md:h-[80vh] lg:h-[60vh] bg-zinc-800 border-[3px] border-zinc-600 shadow-md font-martian">
 
       {/* Window Header */}
       <div className="h-6 bg-orange-400 flex items-center justify-between px-2">
@@ -18,25 +17,12 @@ const FeaturedProject = (project: FeaturedProjectType) => {
       </div>
 
       {/* Window Content */}
-      <div id="teste" className="h-fit md:h-[calc(100%-1.5rem)] p-2 md:p-4 bg-black border-[2px] border-t-zinc-700 border-l-zinc-700 border-r-zinc-600 border-b-zinc-600 m-1">
-        <div
-          className="flex flex-col items-center justify-start md:justify-between w-full rounded-sm bg-zinc-900 h-full p-2 md:p-9 gap-y-5 scroll-inner"
-          style={{ paddingBottom: `${bottom}px` }}
-        >
+      <div id="teste" className="h-[calc(100%-2rem)] p-2 md:p-4 bg-zinc-900 border-[2px] border-zinc-600 m-2">
+        <div className="flex flex-col items-center justify-start md:justify-between w-full rounded-sm bg-zinc-900 h-full gap-y-5 p-5 scroll-inner">
           {/* Changed grid to be responsive */}
           <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-2 md:gap-y-5">
-            <div className="flex col-span-1 items-center">
-              <video
-                src={project.preview}
-                autoPlay
-                muted
-                loop
-                playsInline
-                width="100%"
-              />
-            </div>
-            <div className="col-span-1">
-              <div className="flex flex-col items-start justify-start gap-0 md:gap-2">
+            <div className="col-span-2">
+              <div className="flex flex-col items-start justify-start gap-0 md:space-y-2">
                 <p className="text-orange-400 font-jersey text-2xl md:text-4xl uppercase">
                   {project.name}
                 </p>
@@ -51,6 +37,18 @@ const FeaturedProject = (project: FeaturedProjectType) => {
                     {project.description}
                   </p>
                 </div>
+                {project.projectLink && (
+                  <a
+                    href={project.projectLink.toString()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center hover:opacity-80"
+                  >
+                    <span className="text-orange-400 text-xs md:text-sm">
+                      SEE MORE ABOUT THIS PROJECT
+                    </span>
+                  </a>
+                )}
               </div>
             </div>
           </div>
@@ -68,7 +66,7 @@ const FeaturedProject = (project: FeaturedProjectType) => {
                       key={index} 
                       className="flex flex-col items-center justify-center h-fit sm:h-14 md:h-[68px] w-12 sm:w-14 md:w-[68px] p-2 gap-1 md:gap-2 rounded-md border-2 border-zinc-700"
                     >
-                      <Icon className="text-orange-400 w-8 md:w-9 h-8 md:h-9" />
+                      <Icon className="text-orange-400 w-5 md:w-9 h-5 md:h-9" />
                       <div className="text-orange-400 text-[0.8vh] md:text-[1vh] truncate">
                         {stackLabels[tech]}
                       </div>
@@ -91,19 +89,21 @@ const FeaturedProject = (project: FeaturedProjectType) => {
             </div>
 
             {/* company */}
-            <div>
-              <p className="text-orange-400 font-jersey text-2xl md:text-3xl md:pb-3">ENTERPRISE</p>
-              <div 
-                key={project.client.toString()}
-                className="flex-shrink-0 h-10 md:h-12 w-fit p-2 bg-zinc-900 rounded-md items-center gap-1 md:gap-2 flex border-2 border-zinc-700"
-              >
-                <img 
-                  src={project.clientLogo} 
-                  alt={project.client.toString()} 
-                  className="h-[4vh] md:h-[5vh]"
-                />
+            {project.client && (
+              <div>
+                <p className="text-orange-400 font-jersey text-2xl md:text-3xl md:pb-3">ENTERPRISE</p>
+                <div 
+                  key={project.client.toString()}
+                  className="flex-shrink-0 h-10 md:h-12 w-fit p-2 bg-zinc-900 rounded-md items-center gap-1 md:gap-2 flex border-2 border-zinc-700"
+                >
+                  <img 
+                    src={project.clientLogo} 
+                    alt={project.client.toString()} 
+                    className="h-[4vh] md:h-[5vh]"
+                  />
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </div>

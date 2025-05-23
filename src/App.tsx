@@ -54,8 +54,8 @@ function App() {
         if (!innerScroll) return;
       
         // Inner scroll height
-        const maxScroll = 5000;
-        const scrollLength = 2000;
+        const maxScroll = 1000;
+        const scrollLength = 1000;
 
         // skip if there's nothing to scroll
         if (maxScroll <= 0) return;
@@ -66,7 +66,7 @@ function App() {
         // Pin the card while inner scroll happens
         ScrollTrigger.create({
           trigger: card,
-          start: `top ${(index + 4) * 37}px`, //Adjust based on when you want the animation to start
+          start: `top ${(index + 4.8) * 4}%`, //Adjust based on when you want the animation to start
           pin: true,
           pinSpacing: index === lastCardIndex ? true : false, // only last card
           endTrigger: lastCard,
@@ -74,7 +74,7 @@ function App() {
           scrub: true,
           onUpdate: (self) => {
             const scrollTop = maxScroll * self.progress;
-            gsap.to(innerScroll, { scrollTop, duration: 0.8, ease: 'power1.out' });
+            innerScroll.scrollTop = scrollTop;
           },
           onEnter: () => {
             innerScroll.scrollTop = 0;
@@ -214,13 +214,13 @@ function App() {
           
 
       {/* Projects */}
-      <div id="projects" className="relative min-h-screen w-full pt-[10%] md:pt-[5%] space-y-5">
+      <div id="projects" className="relative min-h-screen w-full pt-[10%] md:pt-[5%] space-y-5 md:space-y-20">
         {/* Desktop layout */}
-        <div className="hidden md:flex flex-col justify-between h-fit px-5 space-y-5">
+        <div className="flex flex-col justify-between h-fit px-5 space-y-5">
           <p ref={titleRef} className="font-jersey text-orange-400 text-3xl md:text-5xl py-2">
             FEATURED PROJECTS
           </p>
-          <div ref={containerRef} className="flex flex-col gap-[150vh] font-martian">
+          <div ref={containerRef} className="flex flex-col gap-y-[70vh] font-martian">
             {freelancingProjects.map((project, index) => (
               <div key={index} className="card">
                 <FeaturedProject {...project} />
@@ -230,7 +230,7 @@ function App() {
         </div>
 
         {/* Mobile layout for featured projects */}
-        <div className="flex flex-col md:hidden px-5 space-y-3 py-5">
+        <div className=" flex-col hidden px-5 space-y-3 py-5">
           <p className="font-jersey text-orange-400 text-3xl py-2 text-left">
             FEATURED PROJECTS
           </p>
@@ -244,7 +244,7 @@ function App() {
         </div>
 
         {/* Small Projects section */}
-        <div className="space-y-5">
+        <div className="h-screen md:h-fit flex flex-col justify-center space-y-5">
           <p className="font-jersey text-orange-400 text-3xl md:text-5xl px-5">
             SMALL PROJECTS
           </p>

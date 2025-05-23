@@ -1,3 +1,7 @@
+import alma from '@/assets/alma.svg'
+import athinketh from '@/assets/athinketh.svg'
+import rw_interactive from '@/assets/rw_interactive.svg'
+import sky from '@/assets/sky.svg'
 export interface Company {
   name: string;
   icon: string;
@@ -7,19 +11,19 @@ export interface Company {
 export const companies: Company[] = [
   {
     name: 'RW Interactive',
-    icon: '/src/assets/rw_interactive.svg',
+    icon: rw_interactive,
   },
   {
     name: 'Sky Portugal',
-    icon: '/src/assets/sky.svg',
+    icon: sky,
   },
   {
     name: 'ALMA',
-    icon: '/src/assets/alma.svg',
+    icon: alma,
     showName: true,
   },
   {
     name: 'ATHINKETH',
-    icon: '/src/assets/athinketh.svg',
+    icon: athinketh,
   }
 ];
