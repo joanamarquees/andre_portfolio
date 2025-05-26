@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import './index.css'
 import { motion } from 'framer-motion'
-import logo from '@/assets/arrz_logo.svg'
+import logo from '@/assets/logo_header.svg'
 import { useScroll_ } from '@/hooks'
 
 import { StackGrid, Project, FeaturedProject } from '@/components'
@@ -118,7 +118,7 @@ function App() {
       {/* Header */}
       <div className="fixed w-full flex max-h-[8%] items-center justify-between text-orange-400 font-jersey text-center text-lg sm:text-3xl py-2 px-5 md:px-10 bg-black/70 z-50 backdrop-blur-[2px] select-none">
         <a href="#home">
-          <img src={logo} alt="Logo" className="sm:h-20 md:h-24 w-14 sm:w-20 md:w-24" />
+          <img src={logo} alt="Logo" className="sm:h-20 md:h-[8%] w-14 sm:w-20 md:-[8%]" />
         </a>
 
         {/* Desktop Menu - hidden on small screens, visible on md and up */}
@@ -288,7 +288,7 @@ function App() {
                 const links = [
               "https://www.linkedin.com/in/andrefssantos/",
               "https://github.com/arrzdev",
-              "mailto:andrefssantos@tecnico.ulisboa.pt",
+              "mailto:andresantos@tudu.dev",
                 ];
                 return (
               <a
@@ -312,7 +312,7 @@ function App() {
             © arrz. 
             Made with <span className="text-orange-400">{"<3"}</span> in Portugal by{' '}
             <a 
-              href="https://juma-portfolio.vercel.app/" 
+              href="https://joanamarques.tudu.dev/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-orange-300 hover:text-orange-200"

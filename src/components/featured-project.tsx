@@ -22,7 +22,7 @@ const FeaturedProject = (project: FeaturedProjectType) => {
           {/* Changed grid to be responsive */}
           <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-2 md:gap-y-5">
             <div className="col-span-2">
-              <div className="flex flex-col items-start justify-start gap-0 md:space-y-2">
+              <div className="flex flex-col items-start justify-start gap-y-5">
                 <p className="text-orange-400 font-jersey text-2xl md:text-4xl uppercase">
                   {project.name}
                 </p>
@@ -45,7 +45,7 @@ const FeaturedProject = (project: FeaturedProjectType) => {
                     className="flex items-center justify-center hover:opacity-80"
                   >
                     <span className="text-orange-400 text-xs md:text-sm">
-                      SEE MORE ABOUT THIS PROJECT
+                      PROJECT LINK
                     </span>
                   </a>
                 )}
