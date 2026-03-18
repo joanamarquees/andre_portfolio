@@ -19,6 +19,7 @@ This was a collaborative project in spirit. I built it, but André made most of 
 A few things I kept in mind throughout:
 
 - **Designed around the person, not the template.** Rather than dropping André's content into a generic layout, I build something more "arcade" vibes, with a tone of orange because that's his favorite color.
+- **Scroll-controlled project stacking.** The most challenging part of the project was the highlighted projects section. It uses scroll-driven animations to simulate computer windows stacking on top of each other. Each project card layers in as the user scrolls, giving it a tactile, almost OS-like feel that matches the arcade aesthetic.
 
 ---
 
